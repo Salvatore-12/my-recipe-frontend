@@ -1,3 +1,39 @@
+.recipe-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+.recipe-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  width: 300px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.recipe-card:hover {
+  transform: scale(1.05);
+}
+
+.recipe-image {
+  border-radius: 8px;
+  width: 100%;
+  height: auto;
+}
+
+h1, h3 {
+  margin: 10px 0;
+}
+
+p {
+  margin: 10px 0;
+}
+
+
 .App {
   text-align: center;
 }

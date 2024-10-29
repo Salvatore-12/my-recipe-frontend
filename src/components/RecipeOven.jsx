@@ -14,13 +14,18 @@ const RecipeOven = () => {
 
     // Mostra un messaggio di caricamento mentre `recipe` è `null` o `undefined`
     if (!recipe) return <p>Caricamento in corso...</p>;
-    return(  <div>
+    return(  <div className="recipe-container">
         {recipe.map((recipe) => (
-            <div key={recipe.idRecipe}>
+            <div key={recipe.idRecipe} className="recipe-card">
                 <h1>{recipe.name || 'Nome non disponibile'}</h1>
-                <img src={recipe.imageUrl || 'immagine-default.jpg'} alt={recipe.name} width="300" />
+                <img 
+                    src={recipe.imageUrl || 'immagine-default.jpg'} 
+                    alt={recipe.name} 
+                    className="recipe-image" 
+                    width="300" 
+                />
                 <p>{recipe.description || 'Descrizione non disponibile'}</p>
-                
+
                 <h3>Ingredienti</h3>
                 <ul>
                     {(recipe.ingredients || []).map(ingredient => (
@@ -29,14 +34,14 @@ const RecipeOven = () => {
                         </li>
                     ))}
                 </ul>
-                
-                <h3>Passaggi</h3>
+
+                <h3>Procedimenti</h3>
                 <ol>
                     {(recipe.steps || []).map((step, index) => (
                         <li key={index}>{step}</li>
                     ))}
                 </ol>
-                
+
                 <h3>Informazioni aggiuntive</h3>
                 <p>Tempo di preparazione: {recipe.preparationTime || 'N/A'} minuti</p>
                 <p>Tempo di cottura: {recipe.cookingTime || 'N/A'} minuti</p>
