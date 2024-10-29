@@ -4,7 +4,7 @@ const MyNavbar =() => {
     return (
         <Navbar  bg="primary" data-bs-theme="dark">
           <Container fluid>
-            <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+            <Navbar.Brand href="#">Ricette Con Salvo</Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
               <Nav
@@ -35,7 +35,7 @@ const MyNavbar =() => {
                   className="me-2"
                   aria-label="Search"
                 />
-                <Button variant="outline-success">Search</Button>
+                <Button variant="outline-success">Cerca</Button>
               </Form>
             </Navbar.Collapse>
           </Container>
