@@ -21,6 +21,7 @@ export const getRecipeOven = ()=> async(dispatch) => {
     });
     if (response.ok) {
         const data = await response.json();
+        console.log("Dati ricevuti:", data);
         dispatch(setRecipeOven(data));
         console.log("Dati ricevuti:", data);
         return data;
