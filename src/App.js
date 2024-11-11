@@ -5,6 +5,7 @@ import MyNavbar from './components/MyNavbar';
 import RecipeOven from './components/RecipeOven';
 import SingleRecipe from './components/SingleRecipe';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import RecipeBoiling from './components/RecipeBoilling';
 
 
 function App() {
@@ -12,8 +13,9 @@ function App() {
     <BrowserRouter>
     <MyNavbar />
     <Routes>
-      <Route path="/" element={<RecipeOven />} />  {/* Pagina principale */}
-      <Route path="/recipe/:idRecipe" element={<SingleRecipe />} /> {/* Pagina della ricetta */}
+      <Route path="/" element={<RecipeOven />} />
+      <Route path="/Bollitura" element={<RecipeBoiling />} />
+      <Route path="/recipe/:idRecipe" element={<SingleRecipe />} />
     </Routes>
   </BrowserRouter>
 );
