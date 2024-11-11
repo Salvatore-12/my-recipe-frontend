@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Card, CardBody, CardImg, CardText, CardTitle, Col, Container, Row } from "react-bootstrap";
+import { Card,Col, Container, Row } from "react-bootstrap";
 import { ArrowLeft, Link } from "react-bootstrap-icons";
 import { useParams } from "react-router-dom";
 
