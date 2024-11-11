@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Card,Col, Container, Row } from "react-bootstrap";
-import { ArrowLeft, Link } from "react-bootstrap-icons";
+import { Link } from "react-router-dom"; 
+import { IoMdArrowBack } from "react-icons/io";
 import { useParams } from "react-router-dom";
 
 const SingleRecipe = () => {
@@ -24,15 +25,12 @@ const SingleRecipe = () => {
     // Mostra un messaggio di caricamento mentre recipe è null o undefined
     if (!recipe) return <p>Caricamento in corso...</p>;
 
-    // Funzione per tornare indietro
-    const handleGoBack = () => {
-        window.history.back();
-    };
+   
 
     return (
         <Container fluid className="mt-4 mb-5">
-            <Link to="#" onClick={handleGoBack} className="text-success">
-                <ArrowLeft size={20} /> Torna Indietro
+            <Link to="#" onClick={(e) => { e.preventDefault(); window.history.back(); }} className="text-success">
+                <IoMdArrowBack size={25} />
             </Link>
             <Card className="recipe-card mt-3" style={{ width: "90%" }}>
                 <Row>
