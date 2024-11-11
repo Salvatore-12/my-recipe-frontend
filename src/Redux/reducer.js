@@ -1,9 +1,11 @@
 import { ActionTypes } from "./action";
 
 const initialstate = {
-    recipeOven : null
+    recipeOven : null,
+    recipeBoiling : null
 };
 console.log(initialstate);
+
 const reducer = (state = initialstate, action) => {
     switch (action.type) {
 
@@ -12,6 +14,13 @@ const reducer = (state = initialstate, action) => {
          ...state,
          recipeOven : action.payload,
       };
+
+      case ActionTypes.SET_RECIPE_BOILING:
+        return {
+           ...state,
+           recipeBoiling : action.payload,
+        };
+
       default: return state;
     }
 }
