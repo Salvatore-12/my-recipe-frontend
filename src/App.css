@@ -10,28 +10,37 @@
   border-radius: 8px;
   padding: 15px;
   background-color: #f9f9f9;
-  width: 300px;
-  text-align: center;
-  transition: transform 0.2s;
-}
-
-.recipe-card:hover {
-  transform: scale(1.05);
-}
-
-.recipe-image {
-  border-radius: 8px;
   width: 100%;
-  height: auto;
+  text-align: center;
+
+}
+.customCard{
+  margin-top: 2%;
+  border: 2px solid black;
+  padding: 15px;
+  width: 300px; /* Larghezza definita per il contenitore */
+  display: flex;
+  justify-content: center; /* Centra orizzontalmente */
+  align-items: center; /* Centra verticalmente */
+  text-align: center
+  
+}
+.recipe-image {
+  width: 100%;
+  height: 200px; 
+  object-fit:cover;
+  border-radius: 8px; 
+  margin-bottom: auto;
 }
 
+.MyDesciption{
+  font-size: larger;
+  margin: 0 10px;
+}
 h1, h3 {
   margin: 10px 0;
 }
 
-p {
-  margin: 10px 0;
-}
 
 
 .App {
