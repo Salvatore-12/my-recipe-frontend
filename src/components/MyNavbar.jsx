@@ -21,8 +21,8 @@ const MyNavbar =() => {
                    alla griglia
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action5">
-                    bolliti
+                  <NavDropdown.Item href="/Bollitura">
+                    bollito
                   </NavDropdown.Item>
                   <NavDropdown.Item href="#action5">
                     fritto
