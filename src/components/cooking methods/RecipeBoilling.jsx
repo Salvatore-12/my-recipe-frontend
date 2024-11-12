@@ -29,8 +29,7 @@ const RecipeBoiling= () => {
                     alt={recipe.name}  
                     className="recipe-image" 
                 />
-                <p className="MyDesciption">{recipe.description}</p>
-            
+               
                 </Link>
             </div>
             
