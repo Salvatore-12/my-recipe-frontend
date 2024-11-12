@@ -13,9 +13,9 @@ const RecipeOven = () => {
     console.log("Dati recipe:", recipe);
 
     if (!recipe) return <p>Caricamento in corso...</p>;
-    return(  <div>
+    return(  <div className="d-flex">
         {recipe.map((recipe) => (
-            <div className="ms-3"  key={recipe.idRecipe}>
+            <div className="ms-3 customCard"  key={recipe.idRecipe}>
                 <Link  style={{
                                 textDecoration: 'none',
                                color: 'inherit', 
@@ -25,7 +25,7 @@ const RecipeOven = () => {
                 <img 
                     src={recipe.imageUrl || 'immagine-default.jpg'} 
                     alt={recipe.name}  
-                    width="300" 
+                    className="recipe-image"
                 />
             
                 </Link>
