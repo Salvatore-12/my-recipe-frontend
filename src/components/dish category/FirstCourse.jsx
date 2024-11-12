@@ -14,10 +14,12 @@ const FirstCourse = () => {
 
   if (!firstCourse) return <p>Caricamento in corso...</p>;
 
-  return (
+  return ( <>
+  <h1 className='ms-3 mt-3'>Primi piatti:</h1>
     <div className="d-flex">
       {firstCourse.map((recipe) => (
-        <div className="ms-3 customCard" key={recipe.idRecipe}>
+        <div className="ms-3 mt-2 customCard" key={recipe.idRecipe}>
+        
           <Link
             to={`/recipe/${recipe.idRecipe}`}
             style={{
@@ -35,6 +37,7 @@ const FirstCourse = () => {
         </div>
       ))}
     </div>
+    </>
   );
 };
 
