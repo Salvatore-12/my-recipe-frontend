@@ -2,7 +2,8 @@ import { ActionTypes } from "./action";
 
 const initialstate = {
     recipeOven : null,
-    recipeBoiling : null
+    recipeBoiling : null,
+    firstCourse : null
 };
 console.log(initialstate);
 
@@ -20,6 +21,11 @@ const reducer = (state = initialstate, action) => {
            ...state,
            recipeBoiling : action.payload,
         };
+        case ActionTypes.SET_FIRST_COURSE:
+          return {
+            ...state,
+            firstCourse : action.payload,
+          };
 
       default: return state;
     }
