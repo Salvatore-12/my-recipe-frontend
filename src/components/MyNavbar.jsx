@@ -12,9 +12,9 @@ const MyNavbar =() => {
                 style={{ maxHeight: '100px' }}
                 navbarScroll
               >
-                <Nav.Link href="#action1">Home</Nav.Link>
+                <Nav.Link href="/Bollitura">Home</Nav.Link>
                 <NavDropdown title="Cottura">
-                  <NavDropdown.Item href="/" >
+                  <NavDropdown.Item href="/al-forno" >
                    al forno 
                   </NavDropdown.Item>
                   <NavDropdown.Item href="#action4">
@@ -24,7 +24,7 @@ const MyNavbar =() => {
                   <NavDropdown.Item href="/Bollitura">
                     bollito
                   </NavDropdown.Item>
-                  <NavDropdown.Item href="#action5">
+                  <NavDropdown.Item href="/first-category">
                     fritto
                   </NavDropdown.Item>
                   <NavDropdown.Item href="#action5">
@@ -32,10 +32,10 @@ const MyNavbar =() => {
                   </NavDropdown.Item>
                 </NavDropdown>
                 <NavDropdown title="Portata">
-                  <NavDropdown.Item href="#action3" >
+                  <NavDropdown.Item href="/DishCategory-Appetizer" >
                   Antipasto 
                   </NavDropdown.Item>
-                  <NavDropdown.Item href="#action4">
+                  <NavDropdown.Item href="/first-course">
                   Primo
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
