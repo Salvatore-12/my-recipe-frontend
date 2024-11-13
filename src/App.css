@@ -25,6 +25,32 @@
   text-align: center
   
 }
+
+.CardPrefer{
+  margin-top: 2%;
+  border: 2px solid black;
+  padding: 15px;
+  width: 300px; /* Larghezza definita per il contenitore */
+  display: flex;
+  justify-content: center; /* Centra orizzontalmente */
+  align-items: center; /* Centra verticalmente */
+  text-align: center
+}
+
+.IconRemoveFavorities{
+  background-color: transparent;
+  color: red;
+  border: none;
+  font-size: 25px;
+}
+
+.IconRemoveFavorities:hover {
+  background-color: transparent;
+  color: red;
+  border: none;
+  cursor: default;
+}
+
 .recipe-image {
   width: 100%;
   height: 200px; 
