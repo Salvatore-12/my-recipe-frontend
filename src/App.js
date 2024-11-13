@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import RecipeBoiling from './components/cooking methods/RecipeBoilling';
 import FirstCourse from './components/dish category/FirstCourse';
 import RecipeOven from './components/cooking methods/RecipeOven';
+import Favorites from './components/Favorities';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     <BrowserRouter>
     <MyNavbar />
     <Routes>
+      <Route path='/preferiti' element = {<Favorites/>} />
       {/*route for routes for various dish category */}
       <Route path = "/first-course" element = {<FirstCourse/>} />
       {/*route for routes for various cooking methods */}
