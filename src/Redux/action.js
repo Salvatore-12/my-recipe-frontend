@@ -4,9 +4,23 @@ export const ActionTypes = {
     SET_RECIPE_BOILING : "SET_RECIPE_BOILING",
     //2)Sezione di tutte le ricette tramite la portata
     SET_FIRST_COURSE: "SET_FIRST_COURSE",
+    //3)Sezione per mettere una ricetta ai preferiti
+    SET_ADD_FAVORITE : "SET_ADD_FAVORITE",
+    SET_REMOVE_FAVORITE : "SET_REMOVE_FAVORITE",
      //4)SETTAGIO GENERALE 
     SET_ERROR: "SET_ERROR"
 };
+
+export const setRemoveFavorite = (idRecipe) => ({
+    type: ActionTypes.SET_REMOVE_FAVORITE,
+    payload : idRecipe
+});
+
+export const setAddFavorite = (recipe) => ({
+    type: ActionTypes.SET_ADD_FAVORITE,
+    payload : recipe
+});
+
 
 export const setFirstCourse = (FirstCourse) => ({
     type: ActionTypes.SET_FIRST_COURSE,

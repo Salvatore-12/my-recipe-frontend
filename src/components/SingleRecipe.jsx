@@ -3,18 +3,23 @@ import { Card,Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom"; 
 import { IoMdArrowBack } from "react-icons/io";
 import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setAddFavorite, setRemoveFavorite } from "../Redux/action";
 
 const SingleRecipe = () => {
-    const { idRecipe } = useParams(); // Usa idRecipe per ottenere l'ID della ricetta dalla URL
+    const dispatch = useDispatch();
+    const { idRecipe } = useParams(); // Uso idRecipe per ottenere l'ID della ricetta dalla URL
     const [recipe, setRecipe] = useState(null); // Usa useState per gestire lo stato della ricetta
+
+    const favorites = useSelector(state => state.favorites);
 
     useEffect(() => {
         if (idRecipe) {
-            fetch(`http://localhost:3001/Recipe/${idRecipe}`) // Effettua la chiamata API con l'ID della ricetta
+            fetch(`http://localhost:3001/Recipe/${idRecipe}`) // Effettuo la chiamata API con l'ID della ricetta
                 .then(response => response.json())
                 .then(data => {
                     console.log("Dati ricevuti:", data);
-                    setRecipe(data); // Aggiorna lo stato locale con i dati della ricetta
+                    setRecipe(data); // Aggiorno lo stato locale con i dati della ricetta
                 })
                 .catch(error => {
                     console.error("Errore durante il recupero dei dettagli della ricetta:", error);
@@ -25,7 +30,17 @@ const SingleRecipe = () => {
     // Mostra un messaggio di caricamento mentre recipe è null o undefined
     if (!recipe) return <p>Caricamento in corso...</p>;
 
+    const isFavorite = favorites.some(fav => fav.idRecipe === recipe.idRecipe);
    
+    const handleFavoriteToggle = () => {
+        if (isFavorite) {
+            console.log("Rimuovo dai preferiti:", recipe.idRecipe);
+            dispatch(setRemoveFavorite(recipe.idRecipe));
+        } else {
+            console.log("Aggiungo ai preferiti:", recipe);
+            dispatch(setAddFavorite(recipe));
+        }
+    };
 
     return (
         <Container fluid className="mt-4 mb-5">
@@ -47,6 +62,9 @@ const SingleRecipe = () => {
                             <Card.Title>
                                 <h1>{recipe.name || "Nome non disponibile"}</h1>
                             </Card.Title>
+                            <button onClick={handleFavoriteToggle} className="btn btn-primary">
+                                {isFavorite ? "Rimuovi dai Preferiti" : "Aggiungi ai Preferiti"}
+                            </button>
                             <Card.Text>
                                 {recipe.description || "Descrizione non disponibile"}
                             </Card.Text>
