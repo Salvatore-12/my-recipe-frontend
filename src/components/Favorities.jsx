@@ -26,7 +26,7 @@ const Favorites = () => {
                 {favorites.map((recipe) => (
                     <Col md={4} key={recipe.idRecipe} className="mb-4">
                         <Card className="CardPrefer">
-                        <Link to={`/recipe/${recipe.idRecipe}`}>
+                        <Link to={`/recipe/${recipe.idRecipe}`} state={{ fromFavorites: true }}>
                             <Card.Img
                                 variant="top"
                                 src={recipe.imageUrl || "immagine-default.jpg"}

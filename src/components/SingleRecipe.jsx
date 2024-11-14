@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Card,Col, Container, Row } from "react-bootstrap";
-import { Link } from "react-router-dom"; 
+import { Link, useLocation } from "react-router-dom"; 
 import { IoMdArrowBack } from "react-icons/io";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,10 +8,13 @@ import { setAddFavorite, setRemoveFavorite } from "../Redux/action";
 
 const SingleRecipe = () => {
     const dispatch = useDispatch();
+    const location = useLocation();
     const { idRecipe } = useParams(); // Uso idRecipe per ottenere l'ID della ricetta dalla URL
     const [recipe, setRecipe] = useState(null); // Usa useState per gestire lo stato della ricetta
 
     const favorites = useSelector(state => state.favorites);
+
+    const fromFavorites = location.state?.fromFavorites || false;
 
     useEffect(() => {
         if (idRecipe) {
@@ -62,9 +65,11 @@ const SingleRecipe = () => {
                             <Card.Title>
                                 <h1>{recipe.name || "Nome non disponibile"}</h1>
                             </Card.Title>
-                            <button onClick={handleFavoriteToggle} className="btn btn-primary">
-                                {isFavorite ? "Rimuovi dai Preferiti" : "Aggiungi ai Preferiti"}
-                            </button>
+                            {!fromFavorites && ( // Mostra il pulsante solo se non è aperto dai preferiti
+                                <button onClick={handleFavoriteToggle} className="btn btn-primary">
+                                    {isFavorite ? "Rimuovi dai Preferiti" : "Aggiungi ai Preferiti"}
+                                </button>
+                            )}
                             <Card.Text>
                                 {recipe.description || "Descrizione non disponibile"}
                             </Card.Text>
