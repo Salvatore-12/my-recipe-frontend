@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import { Card,Col, Container, Row } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom"; 
 import { IoMdArrowBack } from "react-icons/io";
+import { BsStarFill } from "react-icons/bs";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setAddFavorite, setRemoveFavorite } from "../Redux/action";
+
 
 const SingleRecipe = () => {
     const dispatch = useDispatch();
@@ -62,14 +64,23 @@ const SingleRecipe = () => {
                     </Col>
                     <Col sm={6}>
                         <Card.Body>
-                            <Card.Title>
-                                <h1>{recipe.name || "Nome non disponibile"}</h1>
+                            <Card.Title className="d-flex align-items-center">
+                            <h1 className="mb-0 mr-4">{recipe.name || "Nome non disponibile"}</h1>
+                                {!fromFavorites && (
+                                  <BsStarFill
+                                        size={30} 
+                                        color="black" // bordo nero
+                                        onClick={handleFavoriteToggle}
+                                        style={{
+                                            cursor: "pointer",
+                                            fill: isFavorite ? "gold" : "black", // riempimento giallo se è nei preferiti
+                                            marginTop: "10px",
+                                            marginLeft: "3px"
+                                        }} 
+                                    />
+                                )}
                             </Card.Title>
-                            {!fromFavorites && ( // Mostra il pulsante solo se non è aperto dai preferiti
-                                <button onClick={handleFavoriteToggle} className="btn btn-primary">
-                                    {isFavorite ? "Rimuovi dai Preferiti" : "Aggiungi ai Preferiti"}
-                                </button>
-                            )}
+                            
                             <Card.Text>
                                 {recipe.description || "Descrizione non disponibile"}
                             </Card.Text>
