@@ -1,10 +1,14 @@
 import { ActionTypes } from "./action";
 
+const loadFavoritesFromStorage = () => {
+  const storedFavorites = JSON.parse(localStorage.getItem('favorites'));
+  return storedFavorites ? storedFavorites : []; // Restituisce un array vuoto se non ci sono preferiti
+};
 const initialstate = {
     recipeOven : null,
     recipeBoiling : null,
     firstCourse : null,
-    favorites: []
+    favorites: loadFavoritesFromStorage()
 };
 console.log(initialstate);
 
@@ -32,15 +36,19 @@ const reducer = (state = initialstate, action) => {
           if (state.favorites.some(fav => fav.idRecipe === action.payload.idRecipe)) {
             return state;
         }
+        const updatedFavoritesAdd = [...state.favorites, action.payload];
+        localStorage.setItem('favorites', JSON.stringify(updatedFavoritesAdd));
           return {
             ...state,
-            favorites :[...state.favorites, action.payload]
+            favorites :updatedFavoritesAdd
           }  
 
         case ActionTypes.SET_REMOVE_FAVORITE:
+          const updatedFavoritesRemove = state.favorites.filter(recipe => recipe.idRecipe !== action.payload);
+          localStorage.setItem('favorites', JSON.stringify(updatedFavoritesRemove));
           return {
             ...state,
-            favorites: state.favorites.filter(recipe => recipe.idRecipe !== action.payload)
+            favorites: updatedFavoritesRemove
           };
 
       default: return state;
