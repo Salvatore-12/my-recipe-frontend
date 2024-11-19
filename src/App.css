@@ -17,6 +17,7 @@
 .customCard{
   margin-top: 2%;
   border: 2px solid black;
+  border-radius: 10%;
   padding: 15px;
   width: 300px; /* Larghezza definita per il contenitore */
   display: flex;
@@ -67,6 +68,22 @@ h1, h3 {
   margin: 10px 0;
 }
 
+button.btn-outline-success {
+  background-color: white;  
+  color: black;             
+  border-color: #28a745;   
+}
+
+/* Rimuove l'effetto hover e cambia lo sfondo al colore bianco */
+button.btn-outline-success:hover, 
+button.btn-outline-success:focus, 
+button.btn-outline-success:active {
+  background-color: white; 
+  color: black;            
+  border-color: #28a745;   
+  box-shadow: none;         
+  cursor: pointer;         
+}
 
 
 .App {
