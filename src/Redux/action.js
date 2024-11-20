@@ -46,9 +46,9 @@ export const getFirstCourse = ()=> async(dispatch) =>{
          if (response.status === 401) {
              dispatch({ type: ActionTypes.SET_ERROR, payload: "Token JWT non valido o scaduto. Effettua di nuovo l'accesso." });
          } else {
-             dispatch({ type: ActionTypes.SET_ERROR, payload: errorMessage || "Errore durante la richiesta dei dati dei mangimi" });
+             dispatch({ type: ActionTypes.SET_ERROR, payload: errorMessage || "Errore durante la richiesta dei dati " });
          }
-         throw new Error(errorMessage || "Errore durante la richiesta dei dati dei tiragraffi");
+         throw new Error(errorMessage || "Errore durante la richiesta dei dati dei FirstCourse");
      }
  } catch (error) {
      console.error("Errore:", error);
@@ -81,13 +81,13 @@ export const getRecipeBoiling = ()=> async(dispatch) => {
          if (response.status === 401) {
              dispatch({ type: ActionTypes.SET_ERROR, payload: "Token JWT non valido o scaduto. Effettua di nuovo l'accesso." });
          } else {
-             dispatch({ type: ActionTypes.SET_ERROR, payload: errorMessage || "Errore durante la richiesta dei dati dei mangimi" });
+             dispatch({ type: ActionTypes.SET_ERROR, payload: errorMessage || "Errore durante la richiesta dei dati" });
          }
-         throw new Error(errorMessage || "Errore durante la richiesta dei dati dei tiragraffi");
+         throw new Error(errorMessage || "Errore durante la richiesta dei dati dei RecipeBoiling");
      }
  } catch (error) {
      console.error("Errore:", error);
-     dispatch({ type: ActionTypes.SET_ERROR, payload: error.message || "Errore durante la richiesta dei dati dei tiragraffi" });
+     dispatch({ type: ActionTypes.SET_ERROR, payload: error.message || "Errore durante la richiesta dei dati dei RecipeBoiling" });
  }
 }
 
@@ -118,14 +118,14 @@ export const getRecipeOven = ()=> async(dispatch) => {
             dispatch({ type: ActionTypes.SET_ERROR, payload: "Token JWT non valido o scaduto. Effettua di nuovo l'accesso." });
         } else {
             // Invia un'azione di errore al reducer
-            dispatch({ type: ActionTypes.SET_ERROR, payload: errorMessage || "Errore durante la richiesta dei dati dei mangimi" });
+            dispatch({ type: ActionTypes.SET_ERROR, payload: errorMessage || "Errore durante la richiesta dei dati" });
         }
-        throw new Error(errorMessage || "Errore durante la richiesta dei dati dei tiragraffi");
+        throw new Error(errorMessage || "Errore durante la richiesta dei dati dei RecipeOven");
     }
 } catch (error) {
     console.error("Errore:", error);
     // Invia un'azione di errore al reducer
-    dispatch({ type: ActionTypes.SET_ERROR, payload: error.message || "Errore durante la richiesta dei dati dei tiragraffi" });
+    dispatch({ type: ActionTypes.SET_ERROR, payload: error.message || "Errore durante la richiesta dei dati RecipeOven" });
 }
 }
 
