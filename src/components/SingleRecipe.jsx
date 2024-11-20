@@ -49,7 +49,7 @@ const SingleRecipe = () => {
 
     return (
         <Container fluid className="pt-4 mb-5 customContainer">
-            <Link to="#" onClick={(e) => { e.preventDefault(); window.history.back(); }} className="text-success">
+            <Link to="#" onClick={(e) => { e.preventDefault(); window.history.back(); }} className="text-primary">
                 <IoMdArrowBack size={25} />
             </Link>
             <Card className="recipe-card mt-3" style={{ width: "90%" }}>
