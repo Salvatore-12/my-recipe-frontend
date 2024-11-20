@@ -9,6 +9,7 @@ import FirstCourse from './components/dish category/FirstCourse';
 import RecipeOven from './components/cooking methods/RecipeOven';
 import Favorites from './components/Favorities';
 import RecipeResults from './components/RecipeResults';
+import AlcoholicDrink from './components/dish category/AlcoholicDrink';
 
 
 function App() {
@@ -23,6 +24,8 @@ function App() {
       <Route path="/al-forno" element={<RecipeOven />} />
       <Route path="/Bollitura" element={<RecipeBoiling />} />
       <Route path="/recipe/:idRecipe" element={<SingleRecipe />} />
+       {/* route for alcoholic and non-alcoholic drink */}
+       <Route path='/Alcoholic_Drinks' element={<AlcoholicDrink/>} />
        {/* route to search results */}
        <Route path="/risultati-perNome" element={<RecipeResults />} />
     </Routes>
