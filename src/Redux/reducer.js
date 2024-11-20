@@ -8,6 +8,7 @@ const initialstate = {
     recipeOven : null,
     recipeBoiling : null,
     firstCourse : null,
+    alcoholicDrink : null,
     favorites: loadFavoritesFromStorage()
 };
 console.log(initialstate);
@@ -31,6 +32,11 @@ const reducer = (state = initialstate, action) => {
             ...state,
             firstCourse : action.payload,
           };
+        case ActionTypes.SET_ALCOHOLIC_DRINK:
+          return {
+            ...state,
+            alcoholicDrink : action.payload,
+          }  
 
         case ActionTypes.SET_ADD_FAVORITE:
           if (state.favorites.some(fav => fav.idRecipe === action.payload.idRecipe)) {

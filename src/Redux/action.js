@@ -4,12 +4,49 @@ export const ActionTypes = {
     SET_RECIPE_BOILING : "SET_RECIPE_BOILING",
     //2)Sezione di tutte le ricette tramite la portata
     SET_FIRST_COURSE: "SET_FIRST_COURSE",
-    //3)Sezione per mettere una ricetta ai preferiti
+    //3)Sezione di tutte le ricette per le bevande
+    SET_ALCOHOLIC_DRINK: " SET_ALCOHOLIC_DRINK",
+    //4)Sezione per mettere una ricetta ai preferiti
     SET_ADD_FAVORITE : "SET_ADD_FAVORITE",
     SET_REMOVE_FAVORITE : "SET_REMOVE_FAVORITE",
-     //4)SETTAGIO GENERALE 
+     //5)SETTAGIO GENERALE 
     SET_ERROR: "SET_ERROR"
 };
+
+export const setAlcoholicDrink = (AlcoholicDrink) => ({
+    type: ActionTypes.SET_ALCOHOLIC_DRINK,
+    payload: AlcoholicDrink
+})
+
+export const getAlcoholicDrink = ()=> async(dispatch) =>{
+    const URL_AlcoholicDrink = "http://localhost:3001/Recipe/DishCategory-Beverage";
+    try {
+     const response = await fetch(URL_AlcoholicDrink, {
+         method: "GET",
+         headers: {
+             "Content-Type":"application/json"
+         }
+     });
+     if (response.ok) {
+         const data = await response.json();
+         console.log("Dati ricevuti:", data);
+         dispatch(setAlcoholicDrink(data));
+         console.log("Dati ricevuti:", data);
+         return data;
+     } else {
+         const errorMessage = await response.text();
+         if (response.status === 401) {
+             dispatch({ type: ActionTypes.SET_ERROR, payload: "Token JWT non valido o scaduto. Effettua di nuovo l'accesso." });
+         } else {
+             dispatch({ type: ActionTypes.SET_ERROR, payload: errorMessage || "Errore durante la richiesta dei dati " });
+         }
+         throw new Error(errorMessage || "Errore durante la richiesta dei dati degli AlcoholicDrink");
+     }
+ } catch (error) {
+     console.error("Errore:", error);
+     dispatch({ type: ActionTypes.SET_ERROR, payload: error.message || "Errore durante la richiesta dei dati degli AlcoholicDrink " });
+ }     
+}
 
 export const setRemoveFavorite = (idRecipe) => ({
     type: ActionTypes.SET_REMOVE_FAVORITE,
