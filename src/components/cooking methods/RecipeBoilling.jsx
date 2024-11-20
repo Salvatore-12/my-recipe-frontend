@@ -14,7 +14,7 @@ const RecipeBoiling= () => {
 
     if (!recipe) return <p>Caricamento in corso...</p>;
     return(  
-        <div className="d-flex">
+        <div className="d-flex customContainer">
         {recipe.map((recipe) => (
             <div className="ms-3 customCard"  key={recipe.idRecipe}>
                 <Link  style={{

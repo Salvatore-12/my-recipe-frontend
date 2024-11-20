@@ -6,7 +6,7 @@ const RecipeResults = () => {
     const { searchTerm } = location.state || { searchTerm: "" };
   
     return (
-        <div>
+        <div className="customContainer">
         <h2>Risultati della ricerca per "{searchTerm}"</h2>
         {searchResults.length === 0 ? (
             <p>Nessuna ricetta trovata per la tua ricerca.</p>

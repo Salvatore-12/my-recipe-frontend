@@ -13,7 +13,7 @@ const RecipeOven = () => {
     console.log("Dati recipe:", recipe);
 
     if (!recipe) return <p>Caricamento in corso...</p>;
-    return(  <div className="d-flex">
+    return(  <div className="d-flex customContainer">
         {recipe.map((recipe) => (
             <div className="ms-3 customCard"  key={recipe.idRecipe}>
                 <Link  style={{

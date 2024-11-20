@@ -20,7 +20,7 @@ const Favorites = () => {
     }
 
     return (
-        <Container fluid className="mt-4 ">
+        <Container fluid className="pt-4 customContainer">
             <h2 className="mb-4">Ricette Preferite</h2>
             <Row>
                 {favorites.map((recipe) => (

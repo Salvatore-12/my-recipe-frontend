@@ -48,7 +48,7 @@ const SingleRecipe = () => {
     };
 
     return (
-        <Container fluid className="mt-4 mb-5">
+        <Container fluid className="pt-4 mb-5 customContainer">
             <Link to="#" onClick={(e) => { e.preventDefault(); window.history.back(); }} className="text-success">
                 <IoMdArrowBack size={25} />
             </Link>
