@@ -13,7 +13,8 @@ const RecipeBoiling= () => {
     console.log("Dati recipe:", recipe);
 
     if (!recipe) return <p>Caricamento in corso...</p>;
-    return(  
+    return(  <>
+        <h1 className="mb-2 ms-3">Ricette con cottura bollita:</h1>
         <div className="d-flex customContainer">
         {recipe.map((recipe) => (
             <div className="ms-3 customCard"  key={recipe.idRecipe}>
@@ -23,7 +24,7 @@ const RecipeBoiling= () => {
                                 }}
                  className="text-dark" 
                  to={`/recipe/${recipe.idRecipe}`}>
-                <h1>{recipe.name || 'Nome non disponibile'}</h1>
+                <h3>{recipe.name || 'Nome non disponibile'}</h3>
                 <img 
                     src={recipe.imageUrl || 'immagine-default.jpg'} 
                     alt={recipe.name}  
@@ -32,11 +33,13 @@ const RecipeBoiling= () => {
                
                 </Link>
             </div>
+           
             
             
         ))}
         
     </div>
+    </>
     
 );
 }
