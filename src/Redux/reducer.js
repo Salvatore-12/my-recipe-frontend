@@ -7,6 +7,7 @@ const loadFavoritesFromStorage = () => {
 const initialstate = {
     recipeOven : null,
     recipeBoiling : null,
+    recipeGrill : null,
     firstCourse : null,
     alcoholicDrink : null,
     favorites: loadFavoritesFromStorage()
@@ -16,17 +17,24 @@ console.log(initialstate);
 const reducer = (state = initialstate, action) => {
     switch (action.type) {
 
-    case ActionTypes.SET_RECIPE_OVEN:
-      return {
+     case ActionTypes.SET_RECIPE_OVEN:
+       return {
          ...state,
-         recipeOven : action.payload,
-      };
+          recipeOven : action.payload,
+       };
 
       case ActionTypes.SET_RECIPE_BOILING:
         return {
            ...state,
            recipeBoiling : action.payload,
         };
+
+      case ActionTypes.SET_RECIPE_GRILL:
+        return{
+          ...state,
+          recipeGrill : action.payload
+        }  
+
         case ActionTypes.SET_FIRST_COURSE:
           return {
             ...state,
@@ -42,6 +50,7 @@ const reducer = (state = initialstate, action) => {
           if (state.favorites.some(fav => fav.idRecipe === action.payload.idRecipe)) {
             return state;
         }
+        
         const updatedFavoritesAdd = [...state.favorites, action.payload];
         localStorage.setItem('favorites', JSON.stringify(updatedFavoritesAdd));
           return {
