@@ -10,6 +10,7 @@ import RecipeOven from './components/cooking methods/RecipeOven';
 import Favorites from './components/Favorities';
 import RecipeResults from './components/RecipeResults';
 import AlcoholicDrink from './components/dish category/AlcoholicDrink';
+import RecipeGrill from './components/cooking methods/RecipeGrill';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       {/*route for routes for various cooking methods */}
       <Route path="/al-forno" element={<RecipeOven />} />
       <Route path="/Bollitura" element={<RecipeBoiling />} />
+      <Route path="/Griglia"   element={<RecipeGrill />} />
       <Route path="/recipe/:idRecipe" element={<SingleRecipe />} />
        {/* route for alcoholic and non-alcoholic drink */}
        <Route path='/Alcoholic_Drinks' element={<AlcoholicDrink/>} />

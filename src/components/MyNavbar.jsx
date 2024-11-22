@@ -61,7 +61,7 @@ const MyNavbar =() => {
                       <NavDropdown.Item as={Link} to="/al-forno">
                           al forno
                       </NavDropdown.Item>
-                      <NavDropdown.Item href="#action4">
+                      <NavDropdown.Item as={Link} to="/Griglia">
                           alla griglia
                       </NavDropdown.Item>
                       <NavDropdown.Divider />
