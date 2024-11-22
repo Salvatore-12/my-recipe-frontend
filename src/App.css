@@ -98,6 +98,20 @@ button.btn-outline-success:active {
   cursor: pointer;         
 }
 
+.titleHomepage{
+  margin-top: 3%;
+  margin-bottom: 2%;
+  margin-left: 10%;
+  
+}
+.CarouseCustom{
+  width: 80%;
+}
+
+.ImgCarouseCustom{
+  border: 2px solix transparent;
+  border-radius: 30px;
+}
 
 .App {
   text-align: center;
