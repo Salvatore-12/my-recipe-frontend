@@ -11,6 +11,8 @@ import Favorites from './components/Favorities';
 import RecipeResults from './components/RecipeResults';
 import AlcoholicDrink from './components/dish category/AlcoholicDrink';
 import RecipeGrill from './components/cooking methods/RecipeGrill';
+import Homepage from './components/Homepage';
+
 
 
 function App() {
@@ -18,6 +20,8 @@ function App() {
     <BrowserRouter>
     <MyNavbar />
     <Routes>
+      {/*route per la home */}
+      <Route path='/' element = {<Homepage />} />
       <Route path='/preferiti' element = {<Favorites/>} />
       {/*route for routes for various dish category */}
       <Route path = "/first-course" element = {<FirstCourse/>} />
