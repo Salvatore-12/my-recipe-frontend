@@ -14,7 +14,7 @@ const AlcoholicDrink = () => {
 
     if (!recipe) return <p>Caricamento in corso...</p>;
     return( <>
-        <h1 className="mb-2 ms-3">Ricette bevande alcoliche::</h1>
+        <h1 className="mb-2 ms-3">Ricette bevande alcoliche:</h1>
     <div className="d-flex customContainer">
         {recipe.map((recipe) => (
             <div className="ms-3 customCard"  key={recipe.idRecipe}>
