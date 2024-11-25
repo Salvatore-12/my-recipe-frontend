@@ -8,6 +8,7 @@ const initialstate = {
     recipeOven : null,
     recipeBoiling : null,
     recipeGrill : null,
+    recipeFrying : null,
     firstCourse : null,
     alcoholicDrink : null,
     non_alcoholicDrink : null,
@@ -35,6 +36,12 @@ const reducer = (state = initialstate, action) => {
           ...state,
           recipeGrill : action.payload
         }  
+
+        case ActionTypes.SET_RECIPE_FRYING:
+          return{
+            ...state,
+            recipeFrying : action.payload
+          }  
 
         case ActionTypes.SET_FIRST_COURSE:
           return {
