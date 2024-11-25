@@ -55,7 +55,7 @@ export const setAlcoholicDrink = (AlcoholicDrink) => ({
 })
 
 export const getAlcoholicDrink = ()=> async(dispatch) =>{
-    const URL_AlcoholicDrink = "http://localhost:3001/Recipe/DishCategory-Beverage";
+    const URL_AlcoholicDrink = "http://localhost:3001/Recipe/DishCategory-Alcoholic_Drink";
     try {
      const response = await fetch(URL_AlcoholicDrink, {
          method: "GET",
