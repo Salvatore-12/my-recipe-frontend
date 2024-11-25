@@ -7,6 +7,8 @@ export const ActionTypes = {
     SET_FIRST_COURSE: "SET_FIRST_COURSE",
     //3)Sezione di tutte le ricette per le bevande
     SET_ALCOHOLIC_DRINK: " SET_ALCOHOLIC_DRINK",
+    SET_NON_ALCOHOLIC_DRINK: " SET_NON_ALCOHOLIC_DRINK",
+
     //4)Sezione per mettere una ricetta ai preferiti
     SET_ADD_FAVORITE : "SET_ADD_FAVORITE",
     SET_REMOVE_FAVORITE : "SET_REMOVE_FAVORITE",
@@ -47,6 +49,40 @@ export const getRecipeGrill = () =>async(dispatch) =>{
      console.error("Errore:", error);
      dispatch({ type: ActionTypes.SET_ERROR, payload: error.message || "Errore durante la richiesta dei dati degli AlcoholicDrink " });
  }        
+}
+export const setNonAlcoholicDrink = (NonAlcoholicDrink) => ({
+    type: ActionTypes.SET_NON_ALCOHOLIC_DRINK,
+    payload: NonAlcoholicDrink
+})
+
+export const getNonAlcoholicDrink = ()=> async(dispatch) =>{
+    const URL_NonAlcoholicDrink = "http://localhost:3001/Recipe/DishCategory-Non_Alcoholic_Drink";
+    try {
+     const response = await fetch(URL_NonAlcoholicDrink, {
+         method: "GET",
+         headers: {
+             "Content-Type":"application/json"
+         }
+     });
+     if (response.ok) {
+         const data = await response.json();
+         console.log("Dati ricevuti:", data);
+         dispatch(setNonAlcoholicDrink(data));
+         console.log("Dati ricevuti:", data);
+         return data;
+     } else {
+         const errorMessage = await response.text();
+         if (response.status === 401) {
+             dispatch({ type: ActionTypes.SET_ERROR, payload: "Token JWT non valido o scaduto. Effettua di nuovo l'accesso." });
+         } else {
+             dispatch({ type: ActionTypes.SET_ERROR, payload: errorMessage || "Errore durante la richiesta dei dati " });
+         }
+         throw new Error(errorMessage || "Errore durante la richiesta dei dati degli NOnAlcoholicDrink");
+     }
+ } catch (error) {
+     console.error("Errore:", error);
+     dispatch({ type: ActionTypes.SET_ERROR, payload: error.message || "Errore durante la richiesta dei dati degli AlcoholicDrink " });
+ }     
 }
 
 export const setAlcoholicDrink = (AlcoholicDrink) => ({
