@@ -12,6 +12,7 @@ import RecipeResults from './components/RecipeResults';
 import AlcoholicDrink from './components/dish category/AlcoholicDrink';
 import RecipeGrill from './components/cooking methods/RecipeGrill';
 import Homepage from './components/Homepage';
+import NonalcoholicDrink from './components/dish category/NonAlcoholicDrink';
 
 
 
@@ -32,6 +33,7 @@ function App() {
       <Route path="/recipe/:idRecipe" element={<SingleRecipe />} />
        {/* route for alcoholic and non-alcoholic drink */}
        <Route path='/Alcoholic_Drinks' element={<AlcoholicDrink/>} />
+       <Route path='Non_Alcoholic_Drinks' element={<NonalcoholicDrink/>}/>
        {/* route to search results */}
        <Route path="/risultati-perNome" element={<RecipeResults />} />
     </Routes>
