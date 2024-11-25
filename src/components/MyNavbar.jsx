@@ -92,7 +92,7 @@ const MyNavbar =() => {
                   </NavDropdown>
                   <NavDropdown title="Bevande" id="navbarScrollingDropdown">
                       <NavDropdown.Item href="/Alcoholic_Drinks">Alcoliche</NavDropdown.Item>
-                      <NavDropdown.Item href="#action3">Analcoliche</NavDropdown.Item>
+                      <NavDropdown.Item href="Non_Alcoholic_Drinks">Analcoliche</NavDropdown.Item>
                   </NavDropdown>
                   <Nav.Link as={Link} to="/preferiti">Preferiti</Nav.Link>
               </Nav>
