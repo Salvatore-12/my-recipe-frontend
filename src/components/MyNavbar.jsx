@@ -71,7 +71,7 @@ const MyNavbar =() => {
                       <NavDropdown.Item as={Link} to="/Fritto">
                           fritto
                       </NavDropdown.Item>
-                      <NavDropdown.Item href="#action5">
+                      <NavDropdown.Item href="/alla-brace">
                           alla brace
                       </NavDropdown.Item>
                   </NavDropdown>
