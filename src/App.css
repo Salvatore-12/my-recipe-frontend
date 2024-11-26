@@ -113,6 +113,12 @@ button.btn-outline-success:active {
   border-radius: 30px;
 }
 
+.back-button {
+ border: solid black 2px;
+ border-radius: 50%;
+ 
+}
+
 .App {
   text-align: center;
 }
