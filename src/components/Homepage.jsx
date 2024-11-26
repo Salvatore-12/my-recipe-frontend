@@ -18,7 +18,9 @@ const Homepage = () => {
   }, [dispatch]);
     return(
         <>
-        <Link to="/al-forno" style={{ textDecoration: "none", color: "inherit" }}>
+        <Link to="/al-forno" 
+              state={{ fromHomepage: true }} 
+              style={{ textDecoration: "none", color: "inherit" }}>
          <h3 className="titleHomepage">Ricette al forno:</h3>
        </Link>
       <div className="d-flex justify-content-evenly">
@@ -46,9 +48,9 @@ const Homepage = () => {
         )}
       </div>
 
-      <Link
-        to="/Alcoholic_Drinks"
-        style={{ textDecoration: "none", color: "inherit" }}
+      <Link to="/Alcoholic_Drinks" 
+            state={{ fromHomepage: true }} 
+            style={{ textDecoration: "none", color: "inherit" }}
       >
         <h3 className="titleHomepage">Ricette bevande alcoliche:</h3>
       </Link>
