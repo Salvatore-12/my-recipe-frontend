@@ -1,11 +1,14 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { getAlcoholicDrink } from "../../Redux/action";
+import { IoMdArrowBack } from "react-icons/io";
 
 const AlcoholicDrink = () => {
     const dispatch = useDispatch();
     const recipe = useSelector(state => state.alcoholicDrink);
+    const location = useLocation(); // verifico lo stato di navigazione
+    const fromHomepage = location.state?.fromHomepage; // Controllo se si proviene dalla homepage
 
     useEffect(() => {
         dispatch(getAlcoholicDrink());
@@ -14,6 +17,22 @@ const AlcoholicDrink = () => {
 
     if (!recipe) return <p>Caricamento in corso...</p>;
     return( <>
+        
+         {/* Mostro il pulsante "Indietro" solo se si proviene dalla homepage */}
+         {fromHomepage && (
+                <Link 
+                    to="/" 
+                    onClick={(e) => { 
+                        e.preventDefault(); 
+                        window.history.back(); 
+                    }} 
+                    className="text-primary ms-3"
+                   
+                >
+                    <IoMdArrowBack size={28} className="mt-3 back-button" />
+                </Link>
+            )}
+
         <h1 className="mb-2 ms-3">Ricette bevande alcoliche:</h1>
     <div className="d-flex customContainer">
         {recipe.map((recipe) => (
