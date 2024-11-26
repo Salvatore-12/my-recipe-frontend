@@ -76,7 +76,7 @@ const MyNavbar =() => {
                       </NavDropdown.Item>
                   </NavDropdown>
                   <NavDropdown title="Portata">
-                      <NavDropdown.Item as={Link} to="/DishCategory-Appetizer">
+                      <NavDropdown.Item as={Link} to="/appetizier">
                           Antipasto
                       </NavDropdown.Item>
                       <NavDropdown.Item as={Link} to="/first-course">
