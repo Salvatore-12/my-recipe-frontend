@@ -7,7 +7,7 @@ const MyNavbar =() => {
     const [searchResults, setSearchResults] = useState([]);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
-    
+
     const handleSearch = async () => {
         if (!searchTerm || searchTerm.trim().length < 3) {
             alert("Inserisci almeno 3 caratteri per la ricerca");
@@ -16,9 +16,8 @@ const MyNavbar =() => {
     
         // Prepara i parametri di ricerca
         const params = new URLSearchParams();
-        params.append("name", searchTerm);  // Nome della ricetta
+        params.append("name", searchTerm);
     
-        // URL dell'endpoint Java
         const url = `http://localhost:3001/Recipe/search?${params.toString()}`;
     
         try {
