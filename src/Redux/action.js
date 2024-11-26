@@ -4,6 +4,7 @@ export const ActionTypes = {
     SET_RECIPE_BOILING : "SET_RECIPE_BOILING",
     SET_RECIPE_GRILL : "SET_RECIPE_GRILL",
     SET_RECIPE_FRYING : "SET-RECIPE_FRYING",
+    SET_RECIPE_EMBERS : "SET_RECIPE_EMBERS",
     //2)Sezione di tutte le ricette tramite la portata
     SET_FIRST_COURSE: "SET_FIRST_COURSE",
     //3)Sezione di tutte le ricette per le bevande
@@ -15,6 +16,42 @@ export const ActionTypes = {
      //5)SETTAGIO GENERALE 
     SET_ERROR: "SET_ERROR"
 };
+
+export const setRecipeEmbers = (RecipeEmbers) => ({
+    type : ActionTypes.SET_RECIPE_EMBERS,
+    payload: RecipeEmbers
+})
+
+export const getRecipeEmbers = () =>async(dispatch) =>{
+    const URL_RecipeEmbers = "http://localhost:3001/Recipe/CookingMethod-Embers";
+    try {
+     const response = await fetch(URL_RecipeEmbers, {
+         method: "GET",
+         headers: {
+             "Content-Type":"application/json"
+         }
+     });
+     if (response.ok) {
+         const data = await response.json();
+         console.log("Dati ricevuti:", data);
+         dispatch(setRecipeEmbers(data));
+         console.log("Dati ricevuti:", data);
+         return data;
+     } else {
+         const errorMessage = await response.text();
+         if (response.status === 401) {
+             dispatch({ type: ActionTypes.SET_ERROR, payload: "Token JWT non valido o scaduto. Effettua di nuovo l'accesso." });
+         } else {
+             dispatch({ type: ActionTypes.SET_ERROR, payload: errorMessage || "Errore durante la richiesta dei dati " });
+         }
+         throw new Error(errorMessage || "Errore durante la richiesta dei dati delle ricette alla brace");
+     }
+ } catch (error) {
+     console.error("Errore:", error);
+     dispatch({ type: ActionTypes.SET_ERROR, payload: error.message || "Errore durante la richiesta dei dati delle ricette alla brace " });
+ }        
+}
+
 
 export const setRecipeFrying = (RecipeFrying) => ({
     type: ActionTypes.SET_RECIPE_FRYING,
