@@ -6,6 +6,7 @@ export const ActionTypes = {
     SET_RECIPE_FRYING : "SET-RECIPE_FRYING",
     SET_RECIPE_EMBERS : "SET_RECIPE_EMBERS",
     //2)Sezione di tutte le ricette tramite la portata
+    SET_APPETIZER : "SET_APPETIZER",
     SET_FIRST_COURSE: "SET_FIRST_COURSE",
     //3)Sezione di tutte le ricette per le bevande
     SET_ALCOHOLIC_DRINK: " SET_ALCOHOLIC_DRINK",
@@ -16,6 +17,41 @@ export const ActionTypes = {
      //5)SETTAGIO GENERALE 
     SET_ERROR: "SET_ERROR"
 };
+
+export const setAppetizier = (Appetizier) => ({
+    type: ActionTypes.SET_APPETIZER,
+    payload : Appetizier
+})
+
+export const getAppetizier = ()=> async(dispatch) =>{
+    const URLAppetizier = "http://localhost:3001/Recipe/DishCategory-Appetizer";
+    try {
+     const response = await fetch(URLAppetizier, {
+         method: "GET",
+         headers: {
+             "Content-Type":"application/json"
+         }
+     });
+     if (response.ok) {
+         const data = await response.json();
+         console.log("Dati ricevuti:", data);
+         dispatch(setAppetizier(data));
+         console.log("Dati ricevuti:", data);
+         return data;
+     } else {
+         const errorMessage = await response.text();
+         if (response.status === 401) {
+             dispatch({ type: ActionTypes.SET_ERROR, payload: "Token JWT non valido o scaduto. Effettua di nuovo l'accesso." });
+         } else {
+             dispatch({ type: ActionTypes.SET_ERROR, payload: errorMessage || "Errore durante la richiesta dei dati " });
+         }
+         throw new Error(errorMessage || "Errore durante la richiesta dei dati degli appetizier");
+     }
+ } catch (error) {
+     console.error("Errore:", error);
+     dispatch({ type: ActionTypes.SET_ERROR, payload: error.message || "Errore durante la richiesta dei dati degli appetizier" });
+ }    
+}
 
 export const setRecipeEmbers = (RecipeEmbers) => ({
     type : ActionTypes.SET_RECIPE_EMBERS,
