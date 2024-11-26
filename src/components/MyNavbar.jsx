@@ -7,6 +7,7 @@ const MyNavbar =() => {
     const [searchResults, setSearchResults] = useState([]);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+    
     const handleSearch = async () => {
         if (!searchTerm || searchTerm.trim().length < 3) {
             alert("Inserisci almeno 3 caratteri per la ricerca");
