@@ -16,6 +16,8 @@ import NonalcoholicDrink from './components/dish category/NonAlcoholicDrink';
 import RecipeFrying from './components/cooking methods/RecipeFrying';
 import RecipeEmbers from './components/cooking methods/RecipeEmbers';
 import Appetizer from './components/dish category/Appetizier';
+import SecondCourse from './components/dish category/SecondCourse';
+import Dessert from './components/dish category/Dessert';
 
 
 
@@ -28,8 +30,10 @@ function App() {
       <Route path='/' element = {<Homepage />} />
       <Route path='/preferiti' element = {<Favorites/>} />
       {/*route for routes for various dish category */}
-      <Route path='/appetizier' element = {<Appetizer/>} />
+      <Route path ='/appetizier' element = {<Appetizer/>} />
       <Route path = "/first-course" element = {<FirstCourse/>} />
+      <Route path ='/second-course' element = {<SecondCourse/>}/>
+      <Route path ='/dessert' element = {<Dessert/>}  />
       {/*route for routes for various cooking methods */}
       <Route path="/al-forno" element={<RecipeOven />} />
       <Route path="/Bollitura" element={<RecipeBoiling />} />
