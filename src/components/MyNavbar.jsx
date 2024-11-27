@@ -83,10 +83,10 @@ const MyNavbar =() => {
                           Primo
                       </NavDropdown.Item>
                       <NavDropdown.Divider />
-                      <NavDropdown.Item href="#action5">
+                      <NavDropdown.Item href="second-course">
                           Secondo
                       </NavDropdown.Item>
-                      <NavDropdown.Item href="#action5">
+                      <NavDropdown.Item href="/dessert">
                           Dessert
                       </NavDropdown.Item>
                   </NavDropdown>
