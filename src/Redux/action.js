@@ -8,6 +8,8 @@ export const ActionTypes = {
     //2)Sezione di tutte le ricette tramite la portata
     SET_APPETIZER : "SET_APPETIZER",
     SET_FIRST_COURSE: "SET_FIRST_COURSE",
+    SET_SECOND_COURSE: "SET_SECOND_COURSE",
+    SET_DESSERT: "SET_DESSERT",
     //3)Sezione di tutte le ricette per le bevande
     SET_ALCOHOLIC_DRINK: " SET_ALCOHOLIC_DRINK",
     SET_NON_ALCOHOLIC_DRINK: " SET_NON_ALCOHOLIC_DRINK",
@@ -17,6 +19,77 @@ export const ActionTypes = {
      //5)SETTAGIO GENERALE 
     SET_ERROR: "SET_ERROR"
 };
+
+export const setDessert = (Dessert) => ({
+    type : ActionTypes.SET_DESSERT,
+    payload : Dessert
+})
+
+export const getDessert = ()=> async(dispatch) =>{
+    const URLDessert = "http://localhost:3001/Recipe/DishCategory-Dessert";
+    try {
+     const response = await fetch(URLDessert, {
+         method: "GET",
+         headers: {
+             "Content-Type":"application/json"
+         }
+     });
+     if (response.ok) {
+         const data = await response.json();
+         console.log("Dati ricevuti:", data);
+         dispatch(setDessert(data));
+         console.log("Dati ricevuti:", data);
+         return data;
+     } else {
+         const errorMessage = await response.text();
+         if (response.status === 401) {
+             dispatch({ type: ActionTypes.SET_ERROR, payload: "Token JWT non valido o scaduto. Effettua di nuovo l'accesso." });
+         } else {
+             dispatch({ type: ActionTypes.SET_ERROR, payload: errorMessage || "Errore durante la richiesta dei dati " });
+         }
+         throw new Error(errorMessage || "Errore durante la richiesta dei dati dei dessert");
+     }
+ } catch (error) {
+     console.error("Errore:", error);
+     dispatch({ type: ActionTypes.SET_ERROR, payload: error.message || "Errore durante la richiesta dei dessert" });
+ }    
+}
+
+
+export const setSecondCourse = (SecondCourse) => ({
+    type : ActionTypes.SET_SECOND_COURSE,
+    payload : SecondCourse
+})
+
+export const getSecondCourse = ()=> async(dispatch) =>{
+    const URLSecondCourse = "http://localhost:3001/Recipe/DishCategory-Second_Course";
+    try {
+     const response = await fetch(URLSecondCourse, {
+         method: "GET",
+         headers: {
+             "Content-Type":"application/json"
+         }
+     });
+     if (response.ok) {
+         const data = await response.json();
+         console.log("Dati ricevuti:", data);
+         dispatch(setSecondCourse(data));
+         console.log("Dati ricevuti:", data);
+         return data;
+     } else {
+         const errorMessage = await response.text();
+         if (response.status === 401) {
+             dispatch({ type: ActionTypes.SET_ERROR, payload: "Token JWT non valido o scaduto. Effettua di nuovo l'accesso." });
+         } else {
+             dispatch({ type: ActionTypes.SET_ERROR, payload: errorMessage || "Errore durante la richiesta dei dati " });
+         }
+         throw new Error(errorMessage || "Errore durante la richiesta dei dati dei second_course");
+     }
+ } catch (error) {
+     console.error("Errore:", error);
+     dispatch({ type: ActionTypes.SET_ERROR, payload: error.message || "Errore durante la richiesta dei second_course" });
+ }    
+}
 
 export const setAppetizier = (Appetizier) => ({
     type: ActionTypes.SET_APPETIZER,

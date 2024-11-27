@@ -12,6 +12,8 @@ const initialstate = {
     recipeEmbers : null,
     appetizier : null,
     firstCourse : null,
+    secondCourse : null,
+    dessert : null,
     alcoholicDrink : null,
     non_alcoholicDrink : null,
     favorites: loadFavoritesFromStorage()
@@ -63,11 +65,23 @@ const reducer = (state = initialstate, action) => {
             firstCourse : action.payload,
           };
 
-          case ActionTypes.SET_NON_ALCOHOLIC_DRINK:
-            return {
+        case ActionTypes.SET_SECOND_COURSE:
+          return{
+            ...state,
+            secondCourse : action.payload,
+          }
+        
+          case ActionTypes.SET_DESSERT:
+            return{
               ...state,
-              non_alcoholicDrink : action.payload,
-            }  
+              dessert : action.payload,
+            }
+
+        case ActionTypes.SET_NON_ALCOHOLIC_DRINK:
+          return {
+            ...state,
+            non_alcoholicDrink : action.payload,
+          }  
 
         case ActionTypes.SET_ALCOHOLIC_DRINK:
           return {
