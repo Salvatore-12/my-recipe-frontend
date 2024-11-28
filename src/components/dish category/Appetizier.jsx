@@ -3,6 +3,7 @@ import { getAppetizier } from "../../Redux/action";
 
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import { Col, Container, Row } from "react-bootstrap";
 
 const Appetizer = () => {
     const dispatch = useDispatch();
@@ -14,17 +15,23 @@ const Appetizer = () => {
     console.log("Dati recipe:", recipe);
 
     if (!recipe) return <p>Caricamento in corso...</p>;
-    return( <>
-        <h1 className="mb-2 ms-3">Antipasti:</h1>
-    <div className="d-flex customContainer">
+    return( <Container className="mt-4">
+        <h1 className="text-center mb-4">Antipasti:</h1>
+    <Row className="gy-4">
         {recipe.map((recipe) => (
-            <div className="ms-3 customCard"  key={recipe.idRecipe}>
-                <Link  style={{
-                                textDecoration: 'none',
-                               color: 'inherit', 
-                                }}
-                 className="text-dark" to={`/recipe/${recipe.idRecipe}`}>
-                    
+            <Col 
+              key={recipe.idRecipe}
+              xs={12} sm={6} md={4} lg={3} 
+              className="d-flex justify-content-center"
+            >
+              <div className="customCard text-center">
+                <Link  
+                  to={`/recipe/${recipe.idRecipe}`}
+                  style={{
+                    textDecoration: 'none',
+                    color: 'inherit', 
+                  }}
+               >    
                 <h3>{recipe.name || 'Nome non disponibile'}</h3>
                 <img 
                     src={recipe.imageUrl || 'immagine-default.jpg'} 
@@ -33,13 +40,14 @@ const Appetizer = () => {
                 />
             
                 </Link>
-            </div>
+                </div>
+            </Col>
             
             
         ))}
         
-    </div>
-    </> 
+    </Row>
+    </Container> 
     
 );
 }

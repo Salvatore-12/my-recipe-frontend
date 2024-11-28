@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getDessert } from "../../Redux/action";
+import { Col, Container, Row } from "react-bootstrap";
 
 const Dessert = () => {
     const dispatch = useDispatch()
@@ -12,30 +13,36 @@ const Dessert = () => {
     },[dispatch]) 
     if (!dessert) return <p>Caricamento in corso...</p>;
   
-     return ( <>
-    <h1 className='ms-3 mt-3'>Secondi piatti:</h1>
-      <div className="d-flex">
+     return ( <Container className="mt-4">
+    <h1 className='text-center mb-4'>Secondi piatti:</h1>
+      <Row className="gy-4">
         {dessert.map((recipe) => (
-          <div className="ms-3 mt-2 customCard" key={recipe.idRecipe}>
-          
-            <Link
-              to={`/recipe/${recipe.idRecipe}`}
-              style={{
-                textDecoration: 'none',
-                color: 'inherit',
-              }}
-            >
+          <Col  
+            key={recipe.idRecipe}
+            xs={12} sm={6} md={4} lg={3} 
+            className="d-flex justify-content-center"
+          >
+          <div>
+             <Link
+               to={`/recipe/${recipe.idRecipe}`}
+               style={{
+                 textDecoration: 'none',
+                 color: 'inherit',
+               }}
+             >
               <h1>{recipe.name || 'Nome non disponibile'}</h1>
               <img
                 src={recipe.imageUrl || 'immagine-default.jpg'}
                 alt={recipe.name}
-                className="recipe-image" 
+                className="recipe-image  img-fluid rounded"
+                style={{ height: '200px', objectFit: 'cover' }} 
               />
             </Link>
           </div>
+          </Col>
         ))}
-      </div>
-      </>
+      </Row>
+      </Container>
     );  
   }
   
