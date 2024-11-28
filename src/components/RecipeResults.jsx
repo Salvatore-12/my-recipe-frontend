@@ -1,3 +1,4 @@
+import { Col, Container, Row } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
 
 const RecipeResults = () => {
@@ -6,35 +7,46 @@ const RecipeResults = () => {
     const { searchTerm } = location.state || { searchTerm: "" };
   
     return (
-        <div className="customContainer">
-        <h2>Risultati della ricerca per "{searchTerm}"</h2>
-        {searchResults.length === 0 ? (
-            <p>Nessuna ricetta trovata per la tua ricerca.</p>
-        ) : (
-            <div className="d-flex">
-                {searchResults.map((recipe) => (
-                    <div className="ms-3 customCard" key={recipe.idRecipe}>
-                        <Link
-                            style={{
-                                textDecoration: "none",
-                                color: "inherit",
-                            }}
-                            className="text-dark"
-                            to={`/recipe/${recipe.idRecipe}`}
+        <Container className="mt-4">
+            <h2 className="text-center mb-4">
+                Risultati della ricerca per "{searchTerm}"
+            </h2>
+            {searchResults.length === 0 ? (
+                <p className="text-center">Nessuna ricetta trovata per la tua ricerca.</p>
+            ) : (
+                <Row className="gy-4">
+                    {searchResults.map((recipe) => (
+                        <Col 
+                            key={recipe.idRecipe} 
+                            xs={12} sm={6} md={4} lg={3} 
+                            className="d-flex justify-content-center"
                         >
-                            <h4>{recipe.name || "Nome non disponibile"}</h4>
-                            <img
-                                src={recipe.imageUrl || "immagine-default.jpg"}
-                                alt={recipe.name}
-                                className="recipe-image"
-                            />
-                            <p>{recipe.description}</p>
-                        </Link>
-                    </div>
-                ))}
-            </div>
-        )}
-    </div>
+                            <div className="customCard text-center p-3 border rounded">
+                                <Link
+                                    style={{
+                                        textDecoration: "none",
+                                        color: "inherit",
+                                    }}
+                                    to={`/recipe/${recipe.idRecipe}`}
+                                >
+                                    <h4 className="mb-3">
+                                        {recipe.name || "Nome non disponibile"}
+                                    </h4>
+                                    <img
+                                        src={recipe.imageUrl || "immagine-default.jpg"}
+                                        alt={recipe.name}
+                                        className="recipe-image img-fluid rounded mb-3"
+                                    />
+                                    <p className="text-muted">
+                                        {recipe.description || "Nessuna descrizione disponibile"}
+                                    </p>
+                                </Link>
+                            </div>
+                        </Col>
+                    ))}
+                </Row>
+            )}
+        </Container>
 );
   };
   

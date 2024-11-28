@@ -50,7 +50,7 @@ const MyNavbar =() => {
       
    
     return (
-      <Navbar bg="primary" data-bs-theme="dark">
+      <Navbar bg="primary"  expand="md" data-bs-theme="dark"  className="px-3 py-2">
       <Container fluid>
           <Navbar.Brand style={{color:"black"}} >Ricette Con Salvo</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -100,7 +100,7 @@ const MyNavbar =() => {
                   <Form.Control
                       type="search"
                       placeholder="Cerca"
-                      className="me-2"
+                      className="me-2  w-100"
                       aria-label="Search"
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}

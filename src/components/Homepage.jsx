@@ -7,11 +7,10 @@ import { getAlcoholicDrink, getRecipeOven } from "../Redux/action";
 const Homepage = () => {
     const dispatch = useDispatch();
 
-  // Recupero i dati dallo stato globale
   const recipesOven = useSelector((state) => state.recipeOven);
   const recipesDrinks = useSelector((state) => state.alcoholicDrink);
 
-  // Effettuo le chiamate API al caricamento del componente
+  
   useEffect(() => {
     dispatch(getRecipeOven());
     dispatch(getAlcoholicDrink());
