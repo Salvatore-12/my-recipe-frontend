@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { Link, useLocation } from "react-router-dom";
 import { getAlcoholicDrink } from "../../Redux/action";
 import { IoMdArrowBack } from "react-icons/io";
+import { Col, Container, Row } from "react-bootstrap";
 
 const AlcoholicDrink = () => {
     const dispatch = useDispatch();
@@ -16,8 +17,8 @@ const AlcoholicDrink = () => {
     console.log("Dati recipe:", recipe);
 
     if (!recipe) return <p>Caricamento in corso...</p>;
-    return( <>
-        
+    return( 
+        <Container className="mt-4">
          {/* Mostro il pulsante "Indietro" solo se si proviene dalla homepage */}
          {fromHomepage && (
                 <Link 
@@ -33,10 +34,15 @@ const AlcoholicDrink = () => {
                 </Link>
             )}
 
-        <h1 className="mb-2 ms-3">Ricette bevande alcoliche:</h1>
-    <div className="d-flex customContainer">
+        <h1 className="text-center mb-4">Ricette bevande alcoliche:</h1>
+    <Row className="gy-4">
         {recipe.map((recipe) => (
-            <div className="ms-3 customCard"  key={recipe.idRecipe}>
+            <Col   
+              key={recipe.idRecipe}
+               xs={12} sm={6} md={4} lg={3} 
+               className="d-flex justify-content-center"
+            >
+              <div className="customCard text-center">
                 <Link  style={{
                                 textDecoration: 'none',
                                color: 'inherit', 
@@ -47,17 +53,19 @@ const AlcoholicDrink = () => {
                 <img 
                     src={recipe.imageUrl || 'immagine-default.jpg'} 
                     alt={recipe.name}  
-                    className="recipe-image"
+                    className="recipe-image img-fluid rounded"
+                    style={{ height: '200px', objectFit: 'cover' }}
                 />
             
                 </Link>
-            </div>
+              </div>
+            </Col>
             
             
         ))}
         
-    </div>
-    </> 
+    </Row>
+    </Container> 
     
 );
 }
