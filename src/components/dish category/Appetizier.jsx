@@ -36,7 +36,8 @@ const Appetizer = () => {
                 <img 
                     src={recipe.imageUrl || 'immagine-default.jpg'} 
                     alt={recipe.name}  
-                    className="recipe-image"
+                    className="recipe-image img-fluid rounded"
+                    style={{ height: '150px', objectFit: 'cover' }}
                 />
             
                 </Link>

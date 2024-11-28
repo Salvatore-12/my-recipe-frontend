@@ -36,7 +36,7 @@ const SecondCourse = () => {
               src={recipe.imageUrl || 'immagine-default.jpg'}
               alt={recipe.name}
               className="recipe-image img-fluid rounded"
-              style={{ height: '200px', objectFit: 'cover' }} 
+              style={{ height: '150px', objectFit: 'cover' }} 
             />
           </Link>
         </div>

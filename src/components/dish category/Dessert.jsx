@@ -14,7 +14,7 @@ const Dessert = () => {
     if (!dessert) return <p>Caricamento in corso...</p>;
   
      return ( <Container className="mt-4">
-    <h1 className='text-center mb-4'>Secondi piatti:</h1>
+    <h1 className='text-center mb-4'>Dessert:</h1>
       <Row className="gy-4">
         {dessert.map((recipe) => (
           <Col  
@@ -22,7 +22,7 @@ const Dessert = () => {
             xs={12} sm={6} md={4} lg={3} 
             className="d-flex justify-content-center"
           >
-          <div>
+          <div className="customCard text-center">
              <Link
                to={`/recipe/${recipe.idRecipe}`}
                style={{
@@ -34,8 +34,8 @@ const Dessert = () => {
               <img
                 src={recipe.imageUrl || 'immagine-default.jpg'}
                 alt={recipe.name}
-                className="recipe-image  img-fluid rounded"
-                style={{ height: '200px', objectFit: 'cover' }} 
+                className="recipe-image img-fluid rounded"
+                style={{ height: '150px', objectFit: 'cover' }} 
               />
             </Link>
           </div>
