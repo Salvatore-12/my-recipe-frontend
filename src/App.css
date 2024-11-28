@@ -27,15 +27,14 @@ body{
 .customCard{
   background-color: white;
   margin-top: 2%;
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 10%;
   padding: 15px;
-  width: 300px; /* Larghezza definita per il contenitore */
+  width: 300px;
   display: flex;
-  justify-content: center; /* Centra orizzontalmente */
-  align-items: center; /* Centra verticalmente */
+  justify-content: center; 
+  align-items: center; 
   text-align: center
-
   
 }
 
@@ -43,10 +42,10 @@ body{
   margin-top: 2%;
   border: 2px solid black;
   padding: 15px;
-  width: 300px; /* Larghezza definita per il contenitore */
+  width: 300px; 
   display: flex;
-  justify-content: center; /* Centra orizzontalmente */
-  align-items: center; /* Centra verticalmente */
+  justify-content: center; 
+  align-items: center; 
   text-align: center
 }
 
@@ -157,3 +156,5 @@ button.btn-outline-success:active {
     transform: rotate(360deg);
   }
 }
+
+
