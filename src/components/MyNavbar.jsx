@@ -96,18 +96,22 @@ const MyNavbar =() => {
                   </NavDropdown>
                   <Nav.Link as={Link} to="/preferiti">Preferiti</Nav.Link>
               </Nav>
-              <Form className="d-flex me-4">
+              <Form className="d-flex w-100 flex-column flex-md-row align-items-md-center">
                   <Form.Control
                       type="search"
                       placeholder="Cerca"
-                      className="me-2  w-100"
+                      className="me-2 mb-2 mb-md-0"
                       aria-label="Search"
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
                   />
                   <Button variant="outline-success" 
                           type="button"
-                          onClick={handleSearch}>Cerca</Button>
+                          onClick={handleSearch}
+                          className="w-100 w-md-auto"
+                  >
+                    Cerca
+                  </Button>
               </Form>
           </Navbar.Collapse>
       </Container>
