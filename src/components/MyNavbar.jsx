@@ -115,6 +115,22 @@ const MyNavbar =() => {
               </Form>
           </Navbar.Collapse>
       </Container>
+
+            {/* Visualizza il messaggio di errore se presente */}
+            {error && <div style={{ color: "red", marginTop: "10px" }}>{error}</div>}
+
+            {/* Visualizza i risultati della ricerca se presenti */}
+            {searchResults.length > 0 && (
+                <div style={{ marginTop: "10px" }}>
+                    <strong>Risultati:</strong>
+                    <ul>
+                         {searchResults.map((result, index) => (
+                              <li key={index}>{result.name}</li>
+                          ))}
+                    </ul>
+               </div>
+            )}
+
   </Navbar>
       );
 }
