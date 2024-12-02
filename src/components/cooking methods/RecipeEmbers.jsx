@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { getRecipeEmbers } from "../../Redux/action";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import { Col, Container, Row } from "react-bootstrap";
 
 const RecipeEmbers = () => {
     const dispatch = useDispatch();
@@ -13,32 +14,38 @@ const RecipeEmbers = () => {
     console.log("Dati recipe:", recipe);
 
     if (!recipe) return <p>Caricamento in corso...</p>;
-    return( <>
-        <h1 className="mb-2 ms-3">Ricette alla brace:</h1>
-    <div className="d-flex customContainer">
-        {recipe.map((recipe) => (
-            <div className="ms-3 customCard"  key={recipe.idRecipe}>
-                <Link  style={{
-                                textDecoration: 'none',
-                               color: 'inherit', 
+    return( 
+          <Container className="mt-4">
+            <h1 className="text-center mb-4">Ricette alla Brace:</h1>
+            <Row className="gy-4">
+                {recipe.map((recipe) => (
+                    <Col
+                        key={recipe.idRecipe} 
+                        xs={12} sm={6} md={4} lg={3} 
+                        className="d-flex justify-content-center"
+                    >
+                        <div className="customCard text-center">
+                            <Link  
+                                to={`/recipe/${recipe.idRecipe}`}
+                                style={{
+                                    textDecoration: "none",
+                                    color: "inherit",
                                 }}
-                 className="text-dark" to={`/recipe/${recipe.idRecipe}`}>
-                    
-                <h3>{recipe.name || 'Nome non disponibile'}</h3>
-                <img 
-                    src={recipe.imageUrl || 'immagine-default.jpg'} 
-                    alt={recipe.name}  
-                    className="recipe-image"
-                />
-            
-                </Link>
-            </div>
-            
-            
-        ))}
-        
-    </div>
-    </> 
+                            >
+                                <h3>{recipe.name || "Nome non disponibile"}</h3>
+                                <img 
+                                    src={recipe.imageUrl || "immagine-default.jpg"} 
+                                    alt={recipe.name}  
+                                    className="recipe-image img-fluid rounded"
+                                    style={{ height: "150px", objectFit: "cover" }}
+                                />
+                            </Link>
+                        </div>
+                    </Col>
+                ))}
+            </Row>
+        </Container>
+    
     
 );
 }
