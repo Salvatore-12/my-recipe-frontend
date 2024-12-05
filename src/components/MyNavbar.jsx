@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 
 const MyNavbar =() => {
     const [searchTerm, setSearchTerm] = useState("");
-    const [searchResults, setSearchResults] = useState([]);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
@@ -39,7 +38,7 @@ const MyNavbar =() => {
             }
     
             console.log("Dati ricevuti dalla chiamata API:", data);
-            setSearchResults(data);
+           
     
             // Passa sia searchResults che searchTerm allo stato durante la navigazione
             navigate("/risultati-perNome", { state: { searchResults: data, searchTerm: searchTerm } });
@@ -50,12 +49,12 @@ const MyNavbar =() => {
       
    
     return (
-      <Navbar bg="primary"  expand="md" data-bs-theme="dark"  className="px-3 py-2">
+      <Navbar   expand="md" data-bs-theme="light"  className="px-3 py-2 navbarCustom ">
       <Container fluid>
           <Navbar.Brand style={{color:"black"}} >Ricette Con Salvo</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
-              <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll>
+              <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px', }} navbarScroll>
                   <Nav.Link as={Link} to="/">Home</Nav.Link>
                   <NavDropdown title="Cottura">
                       <NavDropdown.Item as={Link} to="/al-forno">
@@ -108,7 +107,7 @@ const MyNavbar =() => {
                   <Button variant="outline-success" 
                           type="button"
                           onClick={handleSearch}
-                          className="w-25 ms-auto mb-3 mb-md-0"
+                          className="w-25 ms-auto mb-3 mb-md-0 customButton"
                   >
                     Cerca
                   </Button>
@@ -119,17 +118,7 @@ const MyNavbar =() => {
             {/* Visualizza il messaggio di errore se presente */}
             {error && <div style={{ color: "red", marginTop: "10px" }}>{error}</div>}
 
-            {/* Visualizza i risultati della ricerca se presenti */}
-            {searchResults.length > 0 && (
-                <div style={{ marginTop: "10px" }}>
-                    <strong>Risultati:</strong>
-                    <ul>
-                         {searchResults.map((result, index) => (
-                              <li key={index}>{result.name}</li>
-                          ))}
-                    </ul>
-               </div>
-            )}
+           
 
   </Navbar>
       );
