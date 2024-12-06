@@ -11,6 +11,13 @@ body{
 .navbarCustom .dropdown-toggle::after {
   display: none;
 }
+/* .myButton{
+  display: flex;
+  background-color: #f4a261;
+  color:  black ;
+  align-items: center;
+  justify-content: center;
+} */
 
 .customContainer{
   background-color: wheat;
@@ -74,9 +81,11 @@ body{
 
 .recipe-image {
   width: 100%;
-  height: 200px; 
+  height: auto;
+  max-height: 80%;
   object-fit:cover;
   border-radius: 8px; 
+  margin-top: 4%;
   margin-bottom: 15px;
 }
 
