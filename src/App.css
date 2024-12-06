@@ -9,7 +9,7 @@ body{
 }
 
 .navbarCustom .dropdown-toggle::after {
-  display: none; /* Nasconde l'icona della freccia */
+  display: none;
 }
 
 .customContainer{
