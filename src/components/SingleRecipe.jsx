@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { Card,Col, Container, Row } from "react-bootstrap";
+import { Button, Card,Col, Container, Row } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom"; 
 import { IoMdArrowBack } from "react-icons/io";
 import { BsStarFill } from "react-icons/bs";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setAddFavorite, setRemoveFavorite } from "../Redux/action";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 
 const SingleRecipe = () => {
@@ -47,14 +49,39 @@ const SingleRecipe = () => {
         }
     };
 
-    return (
-        <Container fluid className="pt-4 mb-5 customContainer">
+    const handleSavePDF = () => {
+        // Nascondi l'icona della stella prima di generare il PDF
+        const starIcon = document.getElementById('star-icon');
+        if (starIcon) starIcon.style.display = 'none';
+
+        const element = document.getElementById('recipe-content'); // Assicurati che questo ID esista
+        if (!element) {
+            console.error("Elemento non trovato!");
+            return;
+        }
+
+        // Aspetta che tutte le immagini siano caricate prima di fare il rendering con html2canvas
+        html2canvas(element, { useCORS: true }).then((canvas) => {
+            const imgData = canvas.toDataURL('image/png');
+            const pdf = new jsPDF();
+            pdf.addImage(imgData, 'PNG', 10, 10, 180, 0); // Aggiungi immagine al PDF
+            pdf.save('ricetta.pdf'); // Salva il PDF
+
+            // Mostra di nuovo l'icona della stella dopo aver generato il PDF
+            if (starIcon) starIcon.style.display = 'inline';
+        }).catch(error => {
+            console.error("Errore durante la generazione del PDF:", error);
+        });
+    };
+
+    return ( <>
+        <Container fluid className="pt-4 mb-5 customContainer ">
             <Link to="#" onClick={(e) => { e.preventDefault(); window.history.back(); }} className="text-primary">
                 <IoMdArrowBack size={25} />
             </Link>
-            <Card className="recipe-card mt-3" style={{ width: "90%" }}>
+            <Card className="recipe-card mt-3" style={{ width: "90%" }} id="recipe-content">
                 <Row>
-                    <Col sm={6} className="d-flex justify-content-center">
+                    <Col sm={6} className="d-flex justify-content-center" >
                         <Card.Img
                             src={recipe.imageUrl || "immagine-default.jpg"}
                             alt={recipe.name || "Nome non disponibile"}
@@ -68,6 +95,7 @@ const SingleRecipe = () => {
                             <h1 className="mb-0 mr-4">{recipe.name || "Nome non disponibile"}</h1>
                                 {!fromFavorites && (
                                   <BsStarFill
+                                        id="star-icon"
                                         size={30} 
                                         color="black" // bordo nero
                                         onClick={handleFavoriteToggle}
@@ -128,7 +156,18 @@ const SingleRecipe = () => {
                     </Col>
                 </Row>
             </Card>
+            <div className="myContainerButton">
+                    <Button 
+                        onClick={handleSavePDF} 
+                        style={{ width: "8%" }}
+                        className="myButton"
+                    >
+                        Salva ricetta
+                    </Button>
+                </div>
         </Container>
+
+        </>
 );
     
 }
