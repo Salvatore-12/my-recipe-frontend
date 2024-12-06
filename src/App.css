@@ -11,13 +11,28 @@ body{
 .navbarCustom .dropdown-toggle::after {
   display: none;
 }
-/* .myButton{
-  display: flex;
+.myContainerButton{
+ display: flex;
+ justify-content: end;
+ margin-bottom: 10px;
+ margin-right: 10%;
+} 
+.myButton.btn{
   background-color: #f4a261;
-  color:  black ;
-  align-items: center;
-  justify-content: center;
-} */
+  color: black;
+  border-color: black;
+}
+
+.myButton.btn:hover, 
+.myButton.btn:focus, 
+.myButton.btn:active 
+{
+  background-color: #f4a261; /* Impedisce il cambiamento di colore al clic */
+  color: black;            
+  border-color: black;
+  box-shadow: none;         
+  cursor: pointer;         
+}
 
 .customContainer{
   background-color: wheat;
