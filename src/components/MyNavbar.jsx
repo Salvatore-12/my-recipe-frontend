@@ -104,7 +104,7 @@ const MyNavbar =() => {
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
                   />
-                  <Button variant="outline-success" 
+                  <Button
                           type="button"
                           onClick={handleSearch}
                           className="w-25 ms-auto mb-3 mb-md-0 customButton"
