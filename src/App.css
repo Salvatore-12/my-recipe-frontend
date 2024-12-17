@@ -27,7 +27,7 @@ body{
 .myButton.btn:focus, 
 .myButton.btn:active 
 {
-  background-color: #f4a261; /* Impedisce il cambiamento di colore al clic */
+  background-color: #f4a261;
   color: black;            
   border-color: black;
   box-shadow: none;         
@@ -113,19 +113,19 @@ h1, h3 {
   margin: 10px 0;
 }
 
-button.btn-outline-success {
+.customButton.btn {
   background-color: white;  
   color: black;             
-  border-color: #28a745;   
+  border-color: black;   
 }
 
 /* Rimuove l'effetto hover e cambia lo sfondo al colore bianco */
-button.btn-outline-success:hover, 
-button.btn-outline-success:focus, 
-button.btn-outline-success:active {
+.customButton.btn:hover, 
+.customButton.btn:focus, 
+.customButton.btn:active {
   background-color: white; 
   color: black;            
-  border-color: #28a745;   
+  border-color: black;   
   box-shadow: none;         
   cursor: pointer;         
 }
@@ -146,8 +146,9 @@ button.btn-outline-success:active {
 }
 
 .back-button {
- border: solid black 2px;
- border-radius: 50%;
+  color: #f4a261;
+  border: solid black 2px;
+  border-radius: 50%;
  
 }
 
