@@ -1,6 +1,36 @@
+html, body {
+  height: 100%; 
+  margin: 0; 
+  padding: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+}
+
+.Content {
+  flex: 1; /* Occupa tutto lo spazio disponibile tra la navbar e il footer */
+  padding: 20px; 
+}
+
+.icons{
+  font-size: 25px;
+  margin: 34px;
+}
+.Footer{
+  position: fixed;
+}
+.FooterContainer {
+  background-color:blanchedalmond;
+  color:black; 
+  padding-top: 20px;
+  text-align: center;
+  width: 100%; 
+}
 
 body{
-
   background-color: wheat;
 }
 
@@ -151,6 +181,7 @@ h1, h3 {
   border-radius: 50%;
  
 }
+
 
 .App {
   text-align: center;
