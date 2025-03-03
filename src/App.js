@@ -18,6 +18,7 @@ import RecipeEmbers from './components/cooking methods/RecipeEmbers';
 import Appetizer from './components/dish category/Appetizier';
 import SecondCourse from './components/dish category/SecondCourse';
 import Dessert from './components/dish category/Dessert';
+import Footer from './components/Footer';
 
 
 
@@ -47,6 +48,7 @@ function App() {
        {/* route to search results */}
        <Route path="/risultati-perNome" element={<RecipeResults />} />
     </Routes>
+    <Footer/>
   </BrowserRouter>
 );
   
