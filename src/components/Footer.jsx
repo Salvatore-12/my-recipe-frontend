@@ -3,7 +3,7 @@ import { Facebook, Instagram,Telegram,Tiktok,Youtube } from "react-bootstrap-ico
 
 const Footer = () => {
     return(
-    <Container fluid className=" bg-success-subtle text-black pt-3 ms-0 me-0">
+    <Container fluid className="FooterContainer">
     <Nav>
     <div className="d-flex flex-row ms-4 ps-5 mt-4 mt-3">
         <span className="d-flex flex-column ms-4 ps-4">
