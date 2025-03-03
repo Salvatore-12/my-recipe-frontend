@@ -17,15 +17,19 @@ html, body {
 
 .icons{
   font-size: 25px;
-  margin: 34px;
+  margin-top: 20px;
+  margin-left: 20px;
 }
+
 .Footer{
   position: fixed;
 }
+
 .FooterContainer {
+  display: flex;
+  justify-content:center;
   background-color:blanchedalmond;
   color:black; 
-  padding-top: 20px;
   text-align: center;
   width: 100%; 
 }
