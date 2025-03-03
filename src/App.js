@@ -25,7 +25,9 @@ import Footer from './components/Footer';
 function App() {
   return (
     <BrowserRouter>
+    <div id='root'>
     <MyNavbar />
+    <div className="Content">
     <Routes>
       {/*route per la home */}
       <Route path='/' element = {<Homepage />} />
@@ -48,7 +50,10 @@ function App() {
        {/* route to search results */}
        <Route path="/risultati-perNome" element={<RecipeResults />} />
     </Routes>
+   </div>
+   
     <Footer/>
+   </div>
   </BrowserRouter>
 );
   
