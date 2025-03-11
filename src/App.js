@@ -19,6 +19,7 @@ import Appetizer from './components/dish category/Appetizier';
 import SecondCourse from './components/dish category/SecondCourse';
 import Dessert from './components/dish category/Dessert';
 import Footer from './components/Footer';
+import RecipeEasy from './components/difficulty/RecipeEasy';
 
 
 
@@ -38,17 +39,19 @@ function App() {
       <Route path ='/second-course' element = {<SecondCourse/>}/>
       <Route path ='/dessert' element = {<Dessert/>}  />
       {/*route for routes for various cooking methods */}
-      <Route path="/al-forno" element={<RecipeOven />} />
-      <Route path="/Bollitura" element={<RecipeBoiling />} />
-      <Route path="/Griglia"   element={<RecipeGrill />} />
-      <Route path='/Fritto'    element={<RecipeFrying/>}/>
-      <Route path='/alla-brace' element={<RecipeEmbers/>}/>
-      <Route path="/recipe/:idRecipe" element={<SingleRecipe />} />
+      <Route path ="/al-forno" element = {<RecipeOven />} />
+      <Route path ="/Bollitura" element = {<RecipeBoiling />} />
+      <Route path ="/Griglia"  element = {<RecipeGrill />} />
+      <Route path ='/Fritto' element = {<RecipeFrying/>}/>
+      <Route path ='/alla-brace' element = {<RecipeEmbers/>}/>
+      <Route path ="/recipe/:idRecipe" element = {<SingleRecipe />} />
        {/* route for alcoholic and non-alcoholic drink */}
-       <Route path='/Alcoholic_Drinks' element={<AlcoholicDrink/>} />
-       <Route path='Non_Alcoholic_Drinks' element={<NonalcoholicDrink/>}/>
+       <Route path ='/Alcoholic_Drinks' element = {<AlcoholicDrink/>} />
+       <Route path ='Non_Alcoholic_Drinks' element = {<NonalcoholicDrink/>}/>
+       {/*routes the difficulty of the recipes */}
+       <Route path = '/RecipeEasy' element = {<RecipeEasy/>} />
        {/* route to search results */}
-       <Route path="/risultati-perNome" element={<RecipeResults />} />
+       <Route path ="/risultati-perNome" element={<RecipeResults />} />
     </Routes>
    </div>
    
