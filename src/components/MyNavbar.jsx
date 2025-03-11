@@ -74,6 +74,7 @@ const MyNavbar =() => {
                           alla brace
                       </NavDropdown.Item>
                   </NavDropdown>
+
                   <NavDropdown title="Portata">
                       <NavDropdown.Item as={Link} to="/appetizier">
                           Antipasto
@@ -89,12 +90,28 @@ const MyNavbar =() => {
                           Dessert
                       </NavDropdown.Item>
                   </NavDropdown>
+
+                  <NavDropdown title="Difficoltà">
+                      <NavDropdown.Item as={Link} to="/RecipeEasy">
+                          Facile
+                      </NavDropdown.Item>
+                      <NavDropdown.Item as={Link} to="/RecipeMedia">
+                          Media
+                      </NavDropdown.Item>
+                      <NavDropdown.Divider />
+                      <NavDropdown.Item as={Link} to="/RecipeDifficile">
+                          Difficile
+                      </NavDropdown.Item>
+                  </NavDropdown>
+                  
                   <NavDropdown title="Bevande" id="navbarScrollingDropdown">
                       <NavDropdown.Item href="/Alcoholic_Drinks">Alcoliche</NavDropdown.Item>
                       <NavDropdown.Item href="Non_Alcoholic_Drinks">Analcoliche</NavDropdown.Item>
                   </NavDropdown>
+
                   <Nav.Link as={Link} to="/preferiti">Preferiti</Nav.Link>
               </Nav>
+
               <Form className="d-flex flex-column flex-md-row align-items-md-center ">
                   <Form.Control
                       type="search"
