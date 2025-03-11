@@ -7,7 +7,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 
 const RecipeEasy = () => {
   const dispatch = useDispatch();
-  const  recipeEasy = useSelector((state) => state. recipeEasy);
+  const  recipeEasy = useSelector((state) => state.recipeEasy);
 
   useEffect(() => {
     dispatch(getRecipeEasy());
