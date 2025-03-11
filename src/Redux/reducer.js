@@ -14,6 +14,7 @@ const initialstate = {
     firstCourse : null,
     secondCourse : null,
     dessert : null,
+    recipeEasy : null,
     alcoholicDrink : null,
     non_alcoholicDrink : null,
     favorites: loadFavoritesFromStorage()
@@ -75,6 +76,12 @@ const reducer = (state = initialstate, action) => {
             return{
               ...state,
               dessert : action.payload,
+            }
+           
+          case ActionTypes.SET_RECIPE_EASY:
+            return{
+              ...state,
+              recipeEasy : action.payload,
             }
 
         case ActionTypes.SET_NON_ALCOHOLIC_DRINK:
