@@ -37,7 +37,7 @@ const Homepage = () => {
                   className="d-block w-100 ImgCarouseCustom"
                   style={{ height: "200px", objectFit: "cover" }}
                 />
-                <Carousel.Caption>
+                <Carousel.Caption className="CarouselCapCustom fs-3">
                   <h3>{recipe.name || "Nome non disponibile"}</h3>
                   <p>{recipe.description || "Descrizione non disponibile"}</p>
                 </Carousel.Caption>
@@ -68,7 +68,7 @@ const Homepage = () => {
                   className="d-block w-100 ImgCarouseCustom"
                   style={{ height: "200px", objectFit: "cover" }}
                 />
-                <Carousel.Caption>
+                <Carousel.Caption className="CarouselCapCustom fs-3">
                   <h3>{recipe.name || "Nome non disponibile"}</h3>
                   <p>{recipe.description || "Descrizione non disponibile"}</p>
                 </Carousel.Caption>
