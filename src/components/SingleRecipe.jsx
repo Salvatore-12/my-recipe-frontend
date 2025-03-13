@@ -60,12 +60,20 @@ const SingleRecipe = () => {
             return;
         }
 
+// Sanitizza il nome della ricetta per usarlo come nome file
+const recipeName = recipe.name || 'ricetta-senza-nome'; // Usa un nome di default se recipe.name è null o undefined
+const pdfFilename = recipeName
+    .toLowerCase() // Converti in minuscolo
+    .replace(/[^a-z0-9\s-]/g, '') // Rimuovi caratteri speciali eccetto spazi e trattini
+    .replace(/\s+/g, '-') // Sostituisci gli spazi con trattini
+    .slice(0, 50);
+
         // Aspetta che tutte le immagini siano caricate prima di fare il rendering con html2canvas
         html2canvas(element, { useCORS: true }).then((canvas) => {
             const imgData = canvas.toDataURL('image/png');
             const pdf = new jsPDF();
             pdf.addImage(imgData, 'PNG', 10, 10, 180, 0); // Aggiungi immagine al PDF
-            pdf.save('ricetta.pdf'); // Salva il PDF
+            pdf.save(pdfFilename); // Salva il PDF
 
             // Mostra di nuovo l'icona della stella dopo aver generato il PDF
             if (starIcon) starIcon.style.display = 'inline';
