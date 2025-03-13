@@ -20,6 +20,7 @@ import SecondCourse from './components/dish category/SecondCourse';
 import Dessert from './components/dish category/Dessert';
 import Footer from './components/Footer';
 import RecipeEasy from './components/difficulty/RecipeEasy';
+import RecipeMedium from './components/difficulty/RecipeMedium';
 
 
 
@@ -50,6 +51,7 @@ function App() {
        <Route path ='Non_Alcoholic_Drinks' element = {<NonalcoholicDrink/>}/>
        {/*routes the difficulty of the recipes */}
        <Route path = '/RecipeEasy' element = {<RecipeEasy/>} />
+       <Route path = '/RecipeMedium' element = {<RecipeMedium/>}/>
        {/* route to search results */}
        <Route path ="/risultati-perNome" element={<RecipeResults />} />
     </Routes>
