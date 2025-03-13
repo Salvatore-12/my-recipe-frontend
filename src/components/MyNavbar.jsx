@@ -95,7 +95,7 @@ const MyNavbar =() => {
                       <NavDropdown.Item as={Link} to="/RecipeEasy">
                           Facile
                       </NavDropdown.Item>
-                      <NavDropdown.Item as={Link} to="/RecipeMedia">
+                      <NavDropdown.Item as={Link} to="/RecipeMedium">
                           Media
                       </NavDropdown.Item>
                       <NavDropdown.Item as={Link} to="/RecipeDifficile">
