@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getFirstCourse, getRecipeEasy } from '../../Redux/action';
+import { getRecipeEasy } from '../../Redux/action';
 import { Link } from 'react-router-dom';
 import { Col, Container, Row } from 'react-bootstrap';
 
