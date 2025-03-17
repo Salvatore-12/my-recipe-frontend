@@ -16,12 +16,48 @@ export const ActionTypes = {
     //4)Sezione di tutte le ricette in base la difficolta
     SET_RECIPE_EASY: "SET_RECIPE_EASY",
     SET_RECIPE_MEDIUM:"SET_RECIPE_MEDIUM",
+    SET_RECIPE_HARD:"SET_RECIPE_HARD",
     //5)Sezione per mettere una ricetta ai preferiti
     SET_ADD_FAVORITE : "SET_ADD_FAVORITE",
     SET_REMOVE_FAVORITE : "SET_REMOVE_FAVORITE",
      //6)SETTAGIO GENERALE 
     SET_ERROR: "SET_ERROR"
 };
+
+export const setRecipeHard =(RecipeHard) => ({
+    type : ActionTypes.SET_RECIPE_HARD,
+    payload : RecipeHard
+})
+
+export const getRecipeHard = ()=> async(dispatch) =>{
+    const URLDessert = "http://localhost:3001/Recipe/Difficulty-Hard";
+    try {
+     const response = await fetch(URLDessert, {
+         method: "GET",
+         headers: {
+             "Content-Type":"application/json"
+         }
+     });
+     if (response.ok) {
+         const data = await response.json();
+         console.log("Dati ricevuti:", data);
+         dispatch(setRecipeHard(data));
+         console.log("Dati ricevuti:", data);
+         return data;
+     } else {
+         const errorMessage = await response.text();
+         if (response.status === 401) {
+             dispatch({ type: ActionTypes.SET_ERROR, payload: "Token JWT non valido o scaduto. Effettua di nuovo l'accesso." });
+         } else {
+             dispatch({ type: ActionTypes.SET_ERROR, payload: errorMessage || "Errore durante la richiesta dei dati " });
+         }
+         throw new Error(errorMessage || "Errore durante la richiesta dei dati dei dessert");
+     }
+ } catch (error) {
+     console.error("Errore:", error);
+     dispatch({ type: ActionTypes.SET_ERROR, payload: error.message || "Errore durante la richiesta dei dessert" });
+ }    
+}
 
 export const setRecipeMedium =(RecipeMedium) => ({
     type : ActionTypes.SET_RECIPE_MEDIUM,
