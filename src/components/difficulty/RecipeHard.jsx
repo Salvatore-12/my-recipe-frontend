@@ -18,7 +18,7 @@ const RecipeHard = () => {
   return ( 
     
   <Container className="mt-4">
-      <h1 className="text-center mb-4">Ricette con difficoltà media:</h1>
+      <h1 className="text-center mb-4">Ricette con difficoltà difficile:</h1>
       <Row className="gy-4">
         { recipeHard.map((recipe) => (
           <Col 

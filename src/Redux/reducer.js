@@ -29,13 +29,13 @@ const reducer = (state = initialstate, action) => {
      case ActionTypes.SET_RECIPE_OVEN:
        return {
          ...state,
-          recipeOven : action.payload,
+          recipeOven : action.payload
        };
 
       case ActionTypes.SET_RECIPE_BOILING:
         return {
            ...state,
-           recipeBoiling : action.payload,
+           recipeBoiling : action.payload
         };
 
       case ActionTypes.SET_RECIPE_GRILL:
@@ -65,31 +65,31 @@ const reducer = (state = initialstate, action) => {
         case ActionTypes.SET_FIRST_COURSE:
           return {
             ...state,
-            firstCourse : action.payload,
+            firstCourse : action.payload
           };
 
         case ActionTypes.SET_SECOND_COURSE:
           return{
             ...state,
-            secondCourse : action.payload,
+            secondCourse : action.payload
           }
         
           case ActionTypes.SET_DESSERT:
             return{
               ...state,
-              dessert : action.payload,
+              dessert : action.payload
             }
            
           case ActionTypes.SET_RECIPE_EASY:
             return{
               ...state,
-              recipeEasy : action.payload,
+              recipeEasy : action.payload
             }
           
           case ActionTypes.SET_RECIPE_MEDIUM:
             return {
               ...state,
-              recipeMedium : action.payload,
+              recipeMedium : action.payload
             }
           
           case ActionTypes.SET_RECIPE_HARD:
@@ -101,13 +101,13 @@ const reducer = (state = initialstate, action) => {
         case ActionTypes.SET_NON_ALCOHOLIC_DRINK:
           return {
             ...state,
-            non_alcoholicDrink : action.payload,
+            non_alcoholicDrink : action.payload
           }  
 
         case ActionTypes.SET_ALCOHOLIC_DRINK:
           return {
             ...state,
-            alcoholicDrink : action.payload,
+            alcoholicDrink : action.payload
           }  
 
         case ActionTypes.SET_ADD_FAVORITE:
