@@ -69,10 +69,20 @@ const pdfFilename = recipeName
     .slice(0, 50);
 
         // Aspetta che tutte le immagini siano caricate prima di fare il rendering con html2canvas
-        html2canvas(element, { useCORS: true }).then((canvas) => {
+        html2canvas(element, { useCORS: true,  scale: 3, 
+                               scrollX: -window.scrollX,
+                               scrollY: -window.scrollY,
+                               windowWidth: document.documentElement.scrollWidth,
+                               windowHeight: element.scrollHeight }).then((canvas) => {
             const imgData = canvas.toDataURL('image/png');
-            const pdf = new jsPDF();
-            pdf.addImage(imgData, 'PNG', 10, 10, 180, 0); // Aggiungi immagine al PDF
+            const pdf = new jsPDF({
+                orientation: 'landscape',
+                unit: 'mm',
+                format: [canvas.width * 0.2645, canvas.height * 0.2645]
+            });
+
+
+            pdf.addImage(imgData, 'PNG', 0, 0, canvas.width * 0.2645, canvas.height * 0.2645);
             pdf.save(pdfFilename); // Salva il PDF
 
             // Mostra di nuovo l'icona della stella dopo aver generato il PDF
