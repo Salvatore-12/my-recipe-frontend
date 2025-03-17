@@ -21,6 +21,7 @@ import Dessert from './components/dish category/Dessert';
 import Footer from './components/Footer';
 import RecipeEasy from './components/difficulty/RecipeEasy';
 import RecipeMedium from './components/difficulty/RecipeMedium';
+import RecipeHard from './components/difficulty/RecipeHard';
 
 
 
@@ -52,6 +53,8 @@ function App() {
        {/*routes the difficulty of the recipes */}
        <Route path = '/RecipeEasy' element = {<RecipeEasy/>} />
        <Route path = '/RecipeMedium' element = {<RecipeMedium/>}/>
+       <Route path = '/RecipeHard' element = {<RecipeHard/>}/>
+
        {/* route to search results */}
        <Route path ="/risultati-perNome" element={<RecipeResults />} />
     </Routes>
