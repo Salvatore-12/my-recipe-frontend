@@ -4,7 +4,7 @@ import { Facebook, Instagram,Telegram,Tiktok,Youtube } from "react-bootstrap-ico
 const Footer = () => {
     return(
     <Container fluid className="FooterContainer">
-    <Nav>
+    <Nav className="FooterNav">
     <div className="d-flex flex-row mt-4">
         <span className="d-flex flex-column mr-4">
         <h5>HELP</h5>
