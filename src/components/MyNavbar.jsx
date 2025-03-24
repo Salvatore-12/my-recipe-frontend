@@ -49,9 +49,9 @@ const MyNavbar =() => {
       
    
     return (
-      <Navbar   expand="md" data-bs-theme="light"  className="px-3 py-2 navbarCustom ">
+      <Navbar   expand="md" className="px-3 py-2 navbarCustom">
       <Container fluid>
-          <Navbar.Brand style={{color:"black"}} >Ricette Con Salvo</Navbar.Brand>
+          <Navbar.Brand >Ricette Con Salvo</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
               <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px', }} navbarScroll>

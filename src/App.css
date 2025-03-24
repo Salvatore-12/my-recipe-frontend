@@ -51,6 +51,23 @@ body{
   background-color: #e76f51;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
+  
+}
+
+.navbarCustom .nav-link, 
+.navbarCustom .navbar-brand, 
+.navbarCustom .dropdown-item {
+    color: black;
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.navbarCustom .nav-link:hover, 
+.navbarCustom .navbar-brand:hover, 
+.navbarCustom .dropdown-item:hover {
+    color: #f4f1de;
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .navbarCustom .dropdown-toggle::after {
