@@ -213,6 +213,7 @@ h1, h3 {
 
 .CarouselCapCustom{
   color: rgb(208, 151, 46);
+  font-family: Arial, Helvetica, sans-serif;
   font-size:larger;
   font-style: italic;
   font-weight:bolder;
