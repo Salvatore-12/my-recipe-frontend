@@ -28,7 +28,7 @@ html, body {
 .FooterContainer {
   display: flex;
   justify-content:center;
-  background-color:blanchedalmond;
+  background-color:#2a9d8f;
   color:black; 
   text-align: center;
   width: 100%; 
