@@ -19,12 +19,12 @@ const Footer = () => {
         </span>
     </div>
 
-    <div className="ms-5 icons">
+    <div className="ms-5 icons d-flex flex-column">
           <Telegram className="me-3" />
-          <Tiktok className="me-3" />
-          <Youtube className="me-3" />
-          <Instagram className="me-3" />
-          <Facebook className="me-3" />
+          <Tiktok className="me-3 mt-1" />
+          <Youtube className="me-3 mt-1" />
+          <Instagram className="me-3 mt-1" />
+          <Facebook className="me-3 mt-1" />
     </div>
 
     </Nav>
