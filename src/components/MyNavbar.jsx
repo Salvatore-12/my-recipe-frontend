@@ -115,7 +115,7 @@ const MyNavbar =() => {
                   <Form.Control
                       type="search"
                       placeholder="Cerca"
-                      className=" ms-auto mb-3 mb-md-0  me-md-3  w-75"
+                      className=" ms-auto mb-3 mb-md-0  me-md-3  w-75  bg-secondary"
                       aria-label="Search"
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
