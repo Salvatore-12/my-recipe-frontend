@@ -113,7 +113,7 @@ const MyNavbar =() => {
                   <Form.Control
                       type="search"
                       placeholder="Cerca"
-                      className=" ms-auto mb-3 mb-md-0  me-md-3  w-75 FormSearch"
+                      className=" ms-auto mb-4 mb-md-0  me-md-3  w-75 FormSearch"
                       aria-label="Search"
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
@@ -121,7 +121,7 @@ const MyNavbar =() => {
                   <Button
                           type="button"
                           onClick={handleSearch}
-                          className="w-25 ms-auto mb-3 mb-md-0 customButton"
+                          className="customButton"
                   >
                     Cerca
                   </Button>
