@@ -22,6 +22,7 @@ import Footer from './components/Footer';
 import RecipeEasy from './components/difficulty/RecipeEasy';
 import RecipeMedium from './components/difficulty/RecipeMedium';
 import RecipeHard from './components/difficulty/RecipeHard';
+import RecipeSummer from './seasons/RecipeSummer';
 
 
 
@@ -54,7 +55,8 @@ function App() {
        <Route path = '/RecipeEasy' element = {<RecipeEasy/>} />
        <Route path = '/RecipeMedium' element = {<RecipeMedium/>}/>
        <Route path = '/RecipeHard' element = {<RecipeHard/>}/>
-
+       {/*routes for the seasons of the recipes */}
+       <Route path='/RecipeSummer' element = {<RecipeSummer/>} />
        {/* route to search results */}
        <Route path ="/risultati-perNome" element={<RecipeResults />} />
     </Routes>
