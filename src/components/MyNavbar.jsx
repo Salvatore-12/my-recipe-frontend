@@ -110,10 +110,10 @@ const MyNavbar =() => {
                       <NavDropdown.Item as={Link} to="/RecipeSummer">
                           Estiva
                       </NavDropdown.Item>
-                      <NavDropdown.Item as={Link} to="/RecipeMedium">
+                      <NavDropdown.Item as={Link} to="/RecipeWinter">
                           Invernale
                       </NavDropdown.Item>
-                      <NavDropdown.Item as={Link} to="/RecipeHard">
+                      <NavDropdown.Item as={Link} to="/RecipeAllYear">
                            Tutto l'anno
                       </NavDropdown.Item>
                   </NavDropdown>
