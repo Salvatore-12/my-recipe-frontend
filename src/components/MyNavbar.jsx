@@ -106,6 +106,18 @@ const MyNavbar =() => {
                       <NavDropdown.Item href="Non_Alcoholic_Drinks">Analcoliche</NavDropdown.Item>
                   </NavDropdown>
 
+                  <NavDropdown title="Stagione">
+                      <NavDropdown.Item as={Link} to="/RecipeSummer">
+                          Estiva
+                      </NavDropdown.Item>
+                      <NavDropdown.Item as={Link} to="/RecipeMedium">
+                          Invernale
+                      </NavDropdown.Item>
+                      <NavDropdown.Item as={Link} to="/RecipeHard">
+                           Tutto l'anno
+                      </NavDropdown.Item>
+                  </NavDropdown>
+
                   <Nav.Link as={Link} to="/preferiti">Preferiti</Nav.Link>
               </Nav>
 
