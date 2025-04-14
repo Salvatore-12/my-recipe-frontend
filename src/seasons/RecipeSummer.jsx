@@ -6,7 +6,7 @@ import { getRecipeSummer } from "../Redux/action";
 
 const RecipeSummer = () => {
     const dispatch = useDispatch();
-    const recipe = useSelector(state => state.RecipeSummer); 
+    const recipe = useSelector(state => state.recipeSummer); 
    
 
     useEffect(() => {
@@ -20,7 +20,7 @@ const RecipeSummer = () => {
 
       <Container className="mt-4">
          
-            <h1 className="text-center mb-4">Ricette al forno:</h1>
+            <h1 className="text-center mb-4">Ricette Estive:</h1>
             
             <Row className="gy-4">
                 {recipe.map((recipe) => (
