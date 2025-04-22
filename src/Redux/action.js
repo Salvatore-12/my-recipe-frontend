@@ -33,9 +33,9 @@ export const setRecipeWinter = (RecipeWinter)=> ({
 })
 
 export const getRecipeWinter = ()=> async(dispatch) =>{
-    const URLDessert = "http://localhost:3001/Recipe/Season-Winter";
+    const URLRecipeWinter = "http://localhost:3001/Recipe/Season-Winter";
     try {
-     const response = await fetch(URLDessert, {
+     const response = await fetch(URLRecipeWinter, {
          method: "GET",
          headers: {
              "Content-Type":"application/json"
@@ -68,9 +68,9 @@ export const setRecipeSummer = (RecipeSummer)=> ({
 })
 
 export const getRecipeSummer = ()=> async(dispatch) =>{
-    const URLDessert = "http://localhost:3001/Recipe/Season-Summer";
+    const URLRecipeSummer = "http://localhost:3001/Recipe/Season-Summer";
     try {
-     const response = await fetch(URLDessert, {
+     const response = await fetch(URLRecipeSummer, {
          method: "GET",
          headers: {
              "Content-Type":"application/json"
@@ -103,9 +103,9 @@ export const setRecipeHard =(RecipeHard) => ({
 })
 
 export const getRecipeHard = ()=> async(dispatch) =>{
-    const URLDessert = "http://localhost:3001/Recipe/Difficulty-Hard";
+    const URLRecipeHard = "http://localhost:3001/Recipe/Difficulty-Hard";
     try {
-     const response = await fetch(URLDessert, {
+     const response = await fetch(URLRecipeHard, {
          method: "GET",
          headers: {
              "Content-Type":"application/json"
@@ -138,9 +138,9 @@ export const setRecipeMedium =(RecipeMedium) => ({
 })
 
 export const getRecipeMedium = ()=> async(dispatch) =>{
-    const URLDessert = "http://localhost:3001/Recipe/Difficulty-Medium";
+    const URLRecipeMedium = "http://localhost:3001/Recipe/Difficulty-Medium";
     try {
-     const response = await fetch(URLDessert, {
+     const response = await fetch(URLRecipeMedium, {
          method: "GET",
          headers: {
              "Content-Type":"application/json"
@@ -173,9 +173,9 @@ export const setRecipeEasy =(RecipeEasy) => ({
 })
 
 export const getRecipeEasy = ()=> async(dispatch) =>{
-    const URLDessert = "http://localhost:3001/Recipe/Difficulty-Easy";
+    const URLRecipeEasy = "http://localhost:3001/Recipe/Difficulty-Easy";
     try {
-     const response = await fetch(URLDessert, {
+     const response = await fetch(URLRecipeEasy, {
          method: "GET",
          headers: {
              "Content-Type":"application/json"
