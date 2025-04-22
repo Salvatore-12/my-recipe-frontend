@@ -58,7 +58,7 @@ function App() {
        <Route path = '/RecipeHard' element = {<RecipeHard/>}/>
        {/*routes for the seasons of the recipes */}
        <Route path='/RecipeSummer' element = {<RecipeSummer/>} />
-       <Route path='/RecipeWinter' element = {<RecipeWinter/>}/>
+       <Route path='/Recipe-Winter' element = {<RecipeWinter/>}/>
        {/* route to search results */}
        <Route path ="/risultati-perNome" element={<RecipeResults />} />
     </Routes>
