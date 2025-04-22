@@ -28,7 +28,7 @@ export const ActionTypes = {
 };
 
 export const setRecipeWinter = (RecipeWinter)=> ({
-    type: ActionTypes.SET_RECIPESUMMER,
+    type: ActionTypes.SET_RECIPEWINTER,
     payload : RecipeWinter
 })
 
