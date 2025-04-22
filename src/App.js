@@ -23,6 +23,7 @@ import RecipeEasy from './components/difficulty/RecipeEasy';
 import RecipeMedium from './components/difficulty/RecipeMedium';
 import RecipeHard from './components/difficulty/RecipeHard';
 import RecipeSummer from './seasons/RecipeSummer';
+import RecipeWinter from './seasons/RecipeWinter';
 
 
 
@@ -57,6 +58,7 @@ function App() {
        <Route path = '/RecipeHard' element = {<RecipeHard/>}/>
        {/*routes for the seasons of the recipes */}
        <Route path='/RecipeSummer' element = {<RecipeSummer/>} />
+       <Route path='/RecipeWinter' element = {<RecipeWinter/>}/>
        {/* route to search results */}
        <Route path ="/risultati-perNome" element={<RecipeResults />} />
     </Routes>
