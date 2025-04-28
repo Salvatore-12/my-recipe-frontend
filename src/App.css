@@ -28,10 +28,12 @@ html, body {
 .FooterContainer {
   display: flex;
   justify-content:center;
-  background-color:#2a9d8f;
+  background:linear-gradient(135deg, #a8dadc 0%, #f4a261 100%);
   color:black; 
   text-align: center;
-  width: 100%; 
+  width: 100%;
+  padding: 20px 0;
+  font-weight: bold; 
 }
 .FooterNav{
 font-family: Arial, Helvetica, sans-serif;
@@ -184,7 +186,7 @@ height: 20%;
 }
 
 .customButton.btn {
-  background-color: #2a9d8f;  
+  background-color: linear-gradient(135deg, #f6d365 0%, #fda085 100%);  
   color: black;             
   border-color: black;
   height: 32px;
@@ -192,15 +194,14 @@ height: 20%;
   text-align: center;
 }
 
-/* Rimuove l'effetto hover e cambia lo sfondo al colore bianco */
 .customButton.btn:hover, 
 .customButton.btn:focus, 
 .customButton.btn:active {
-  background-color: #f4f1de; 
-  color: black;            
-  border-color: black;   
-  box-shadow: none;         
-  cursor: pointer;         
+  background: linear-gradient(135deg, #fda085 0%, #f6d365 100%); 
+  transform: scale(1.05); 
+  color: white;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  cursor: pointer;        
 }
 
 .titleHomepage{
