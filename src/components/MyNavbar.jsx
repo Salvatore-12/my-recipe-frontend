@@ -89,18 +89,6 @@ const MyNavbar =() => {
                       </NavDropdown.Item>
                   </NavDropdown>
 
-                  <NavDropdown title="Difficoltà">
-                      <NavDropdown.Item as={Link} to="/RecipeEasy">
-                          Facile
-                      </NavDropdown.Item>
-                      <NavDropdown.Item as={Link} to="/RecipeMedium">
-                          Media
-                      </NavDropdown.Item>
-                      <NavDropdown.Item as={Link} to="/RecipeHard">
-                          Difficile
-                      </NavDropdown.Item>
-                  </NavDropdown>
-                  
                   <NavDropdown title="Bevande" id="navbarScrollingDropdown">
                       <NavDropdown.Item href="/Alcoholic_Drinks">Alcoliche</NavDropdown.Item>
                       <NavDropdown.Item href="Non_Alcoholic_Drinks">Analcoliche</NavDropdown.Item>
@@ -114,9 +102,22 @@ const MyNavbar =() => {
                           Invernale
                       </NavDropdown.Item>
                       <NavDropdown.Item as={Link} to="/RecipeAllSeasons">
-                           Tutto l'anno
+                           Tutte le stagioni
                       </NavDropdown.Item>
                   </NavDropdown>
+
+                  <NavDropdown title="Difficoltà">
+                      <NavDropdown.Item as={Link} to="/RecipeEasy">
+                          Facile
+                      </NavDropdown.Item>
+                      <NavDropdown.Item as={Link} to="/RecipeMedium">
+                          Media
+                      </NavDropdown.Item>
+                      <NavDropdown.Item as={Link} to="/RecipeHard">
+                          Difficile
+                      </NavDropdown.Item>
+                  </NavDropdown>
+                  
 
                   <Nav.Link as={Link} to="/preferiti">Preferiti</Nav.Link>
               </Nav>
