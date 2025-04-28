@@ -113,7 +113,7 @@ const MyNavbar =() => {
                       <NavDropdown.Item as={Link} to="/Recipe-Winter">
                           Invernale
                       </NavDropdown.Item>
-                      <NavDropdown.Item as={Link} to="/RecipeAllYear">
+                      <NavDropdown.Item as={Link} to="/RecipeAllSeasons">
                            Tutto l'anno
                       </NavDropdown.Item>
                   </NavDropdown>
