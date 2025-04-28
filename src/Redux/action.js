@@ -20,12 +20,48 @@ export const ActionTypes = {
     //5)Sezione di tutte le ricette per stagioni
     SET_RECIPESUMMER: "SET_RECIPESUMMER",
     SET_RECIPEWINTER: "SET_RECIPEWINTER",
+    SET_ALLSEASONSRECIPE:"SET_ALLSEASONSRECIPE",
     //6)Sezione per mettere una ricetta ai preferiti
     SET_ADD_FAVORITE : "SET_ADD_FAVORITE",
     SET_REMOVE_FAVORITE : "SET_REMOVE_FAVORITE",
      //7)SETTAGIO GENERALE 
     SET_ERROR: "SET_ERROR"
 };
+
+export const setAllSeasonsRecipe = (AllSeasonsRecipe)=> ({
+    type: ActionTypes.SET_ALLSEASONSRECIPE,
+    payload : AllSeasonsRecipe
+})
+
+export const getAllSeasonsRecipe = ()=> async(dispatch) =>{
+    const URLAllSeasonsRecipe = "http://localhost:3001/Recipe/Season-AllSeasons";
+    try {
+     const response = await fetch(URLAllSeasonsRecipe, {
+         method: "GET",
+         headers: {
+             "Content-Type":"application/json"
+         }
+     });
+     if (response.ok) {
+         const data = await response.json();
+         console.log("Dati ricevuti:", data);
+         dispatch(setAllSeasonsRecipe(data));
+         console.log("Dati ricevuti:", data);
+         return data;
+     } else {
+         const errorMessage = await response.text();
+         if (response.status === 401) {
+             dispatch({ type: ActionTypes.SET_ERROR, payload: "Token JWT non valido o scaduto. Effettua di nuovo l'accesso." });
+         } else {
+             dispatch({ type: ActionTypes.SET_ERROR, payload: errorMessage || "Errore durante la richiesta dei dati " });
+         }
+         throw new Error(errorMessage || "Errore durante la richiesta dei dati per le ricette di tutte le stagioni ");
+     }
+ } catch (error) {
+     console.error("Errore:", error);
+     dispatch({ type: ActionTypes.SET_ERROR, payload: error.message || "Errore durante la richiesta dei dati per le ricette estive" });
+ }    
+}
 
 export const setRecipeWinter = (RecipeWinter)=> ({
     type: ActionTypes.SET_RECIPEWINTER,
