@@ -9,7 +9,7 @@ const MyNavbar =() => {
 
     const handleSearch = async () => {
         if (!searchTerm || searchTerm.trim().length < 3) {
-            alert("Inserisci almeno 3 caratteri per la ricerca");
+            alert("Inserisci qualcosa da cercare");
             return;
         }
     
@@ -31,7 +31,10 @@ const MyNavbar =() => {
                 throw new Error("Errore nella risposta del server");
             }
     
-            const data = await response.json();
+            const text = await response.text();
+
+            const data = text ? JSON.parse(text) : [];
+
             if (data.length === 0) {
                 alert("Nessuna ricetta trovata per la tua ricerca");
                 return;
