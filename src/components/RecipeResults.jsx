@@ -21,7 +21,7 @@ const RecipeResults = () => {
                             xs={12} sm={6} md={4} lg={3} 
                             className="d-flex justify-content-center"
                         >
-                            <div className="customCard text-center p-3 border rounded">
+                            <div className="customCard text-center">
                                 <Link
                                     style={{
                                         textDecoration: "none",
@@ -35,7 +35,8 @@ const RecipeResults = () => {
                                     <img
                                         src={recipe.imageUrl || "immagine-default.jpg"}
                                         alt={recipe.name}
-                                        className="recipe-image img-fluid rounded mb-3"
+                                        className="recipe-image img-fluid rounded"
+                                        style={{ height: '150px', objectFit: 'cover' }}
                                     />
                                     <p className="text-muted">
                                         {recipe.description || "Nessuna descrizione disponibile"}
