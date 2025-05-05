@@ -19,7 +19,7 @@ const Footer = () => {
         </span>
     </div>
 
-    <div className="ms-5 icons d-flex flex-column">
+    <div className="ms-5 icons d-flex flex-row">
           <Telegram className="me-3" />
           <Tiktok className="me-3 mt-1" />
           <Youtube className="me-3 mt-1" />
