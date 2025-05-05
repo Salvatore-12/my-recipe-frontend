@@ -22,9 +22,12 @@ const Favorites = () => {
     return (
         <Container fluid className="pt-4 customContainer">
             <h2 className="mb-4">Ricette Preferite</h2>
-            <Row>
+            <Row className="gy-4">
                 {favorites.map((recipe) => (
-                    <Col md={4} key={recipe.idRecipe} className="mb-4">
+                    <Col  
+                    key={recipe.idRecipe} 
+                    xs={12} sm={6} md={4} lg={3} 
+                    className="d-flex justify-content-center">
                         <Card className="CardPrefer">
                         <Link to={`/recipe/${recipe.idRecipe}`} state={{ fromFavorites: true }}>
                             <Card.Img
