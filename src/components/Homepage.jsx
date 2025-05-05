@@ -84,11 +84,11 @@ const Homepage = () => {
             state={{ fromHomepage: true }} 
             style={{ textDecoration: "none", color: "inherit" }}
       >
-        <h3 className="titleHomepage">Ricette estevive:</h3>
+        <h3 className="titleHomepage">Ricette estive:</h3>
       </Link>
       <div className="d-flex justify-content-evenly">
         {!recipesSummer ? (
-          <p>Caricamento delle bevande alcoliche...</p>
+          <p>Caricamento delle ricette estive...</p>
         ) : recipesSummer.length === 0 ? (
           <p>Non ci sono ricette estive disponibili al momento.</p>
         ) : (
