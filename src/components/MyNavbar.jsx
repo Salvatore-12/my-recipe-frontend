@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button, Container, Form, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 
 const MyNavbar =() => {
     const [searchTerm, setSearchTerm] = useState("");
+    const [suggestions, setSuggestions] = useState([]);
+    const [showDropdown, setShowDropdown] = useState(false);
+    const formRef = useRef();
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
@@ -49,6 +52,56 @@ const MyNavbar =() => {
             setError("Si è verificato un errore durante la ricerca: " + error.message);
         }
     };
+
+    const fetchSuggestions = async (query) => {
+        if (!query || query.trim().length < 2) {
+            setSuggestions([]);
+            setShowDropdown(false);
+            return;
+        }
+
+        try {
+            const response = await fetch(
+                `http://localhost:3001/Recipe/search?name=${query}`
+            );
+            const text = await response.text();
+            const data = text ? JSON.parse(text) : [];
+
+            setSuggestions(data.slice(0, 5)); // massimo 5 suggerimenti
+            setShowDropdown(true);
+        } catch (error) {
+            console.error("Errore durante il fetch dei suggerimenti:", error);
+            setSuggestions([]);
+        }
+    };
+
+    useEffect(() => {
+        fetchSuggestions(searchTerm);
+    }, [searchTerm]);
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (formRef.current && !formRef.current.contains(event.target)) {
+                setShowDropdown(false);
+            }
+        };
+
+        const handleEscape = (event) => {
+            if (event.key === "Escape") {
+                setShowDropdown(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        document.addEventListener("keydown", handleEscape);
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener("keydown", handleEscape);
+        };
+    }, []);
+
+
       
    
     return (
@@ -125,7 +178,7 @@ const MyNavbar =() => {
                   <Nav.Link as={Link} to="/preferiti">Preferiti</Nav.Link>
               </Nav>
 
-              <Form className="d-flex flex-column flex-md-row align-items-md-center ">
+              <Form ref={formRef} className="d-flex flex-column flex-md-row align-items-md-center position-relative ">
                   <Form.Control
                       type="search"
                       placeholder="Cerca"
@@ -133,6 +186,9 @@ const MyNavbar =() => {
                       aria-label="Search"
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
+                      onFocus={() => {
+                        if (suggestions.length > 0) setShowDropdown(true);
+                    }}
                   />
                   <Button
                           type="button"
@@ -141,6 +197,52 @@ const MyNavbar =() => {
                   >
                     Cerca
                   </Button>
+                  {showDropdown && suggestions.length > 0 && (
+                            <div
+                                style={{
+                                    position: "absolute",
+                                    top: "100%",
+                                    left: 0,
+                                    right: 0,
+                                    backgroundColor: "white",
+                                    border: "1px solid #ccc",
+                                    zIndex: 1000,
+                                    maxHeight: "250px",
+                                    overflowY: "auto",
+                                }}
+                            >
+                                {suggestions.map((item) => (
+                                    <div
+                                        key={item.idRecipe}
+                                        style={{
+                                            padding: "8px",
+                                            display: "flex",
+                                            alignItems: "center",
+                                            borderBottom: "1px solid #eee",
+                                            cursor: "pointer",
+                                        }}
+                                        onClick={() => {
+                                            setSearchTerm(item.name);
+                                            navigate(`/recipe/${item.idRecipe}`);
+                                            setShowDropdown(false);
+                                        }}
+                                    >
+                                        <img
+                                            src={item.imageUrl || "immagine-default.jpg"}
+                                            alt={item.name}
+                                            style={{
+                                                width: "40px",
+                                                height: "40px",
+                                                objectFit: "cover",
+                                                borderRadius: "5px",
+                                                marginRight: "10px",
+                                            }}
+                                        />
+                                        <span>{item.name}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
               </Form>
           </Navbar.Collapse>
       </Container>
