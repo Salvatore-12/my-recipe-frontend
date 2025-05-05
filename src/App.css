@@ -74,7 +74,7 @@ body{
 .navbarCustom .navbar-brand:hover, 
 .navbarCustom .dropdown-item:hover {
     color: #f4f1de;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(48, 115, 144, 0.2);
 }
 
 .navbarCustom .dropdown-toggle::after {
@@ -191,7 +191,7 @@ height: 20%;
 }
 
 .customButton.btn {
-  background-color: linear-gradient(135deg, #f6d365 0%, #fda085 100%);  
+  background-color:  #a8dadc;  
   color: black;             
   border-color: black;
   height: 32px;
