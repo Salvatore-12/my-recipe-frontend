@@ -177,7 +177,7 @@ const pdfFilename = recipeName
             <div className="myContainerButton">
                     <Button 
                         onClick={handleSavePDF} 
-                        style={{ width: "8%" }}
+                        w-100 w-sm-50 w-md-25
                         className="myButton"
                     >
                         Salva ricetta
