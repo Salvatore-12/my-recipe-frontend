@@ -61,23 +61,24 @@ body{
   
 }
 
-.navbarCustom .nav-link, 
-.navbarCustom .navbar-brand, 
-.navbarCustom .dropdown-item {
+
+.navbarCustom2 .nav-link, 
+.navbarCustom2 .navbar-brand, 
+.navbarCustom2 .dropdown-item {
     color: black;
     transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
     border-radius: 5px;
     padding: 5px 10px;
 }
 
-.navbarCustom .nav-link:hover, 
-.navbarCustom .navbar-brand:hover, 
-.navbarCustom .dropdown-item:hover {
+.navbarCustom2 .nav-link:hover, 
+.navbarCustom2 .navbar-brand:hover, 
+.navbarCustom2 .dropdown-item:hover {
     color: #f4f1de;
     background-color: rgba(48, 115, 144, 0.2);
 }
 
-.navbarCustom .dropdown-toggle::after {
+.navbarCustom2 .dropdown-toggle::after {
   display: none;
 }
 .myContainerButton{
@@ -210,7 +211,7 @@ height: 20%;
 .customButton.btn:active {
   background: linear-gradient(135deg, #fda085 0%, #f6d365 100%); 
   transform: scale(1.05); 
-  color: #f4f1de;
+  color: black;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   cursor: pointer;        
 }
